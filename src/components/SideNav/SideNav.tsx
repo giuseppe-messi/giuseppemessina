@@ -1,97 +1,125 @@
 import clsx from 'clsx';
 import giuseppesAvatar from '../../assets/giuseppe.jpeg';
-import { AnimatePresence, motion } from 'motion/react';
 import {
-    ChevronRight,
-    House,
-    Pencil,
-    UserSearch
-    } from 'lucide-react';
+  ChevronRight,
+  House,
+  Pencil,
+  UserSearch
+  } from 'lucide-react';
 import { useState } from 'react';
+import { AnimatePresence, motion, type Transition } from "motion/react";
 
 const NAV_OPEN = 240;
-const NAV_COLLAPSED = 72;
+const NAV_COLLAPSED = 75;
 
 const items = [
-  { label: "Home", icon: <House /> },
-  { label: "Projects", icon: <Pencil /> },
-  { label: "About", icon: <UserSearch /> }
+  { label: "Home", icon: <House size={18} /> },
+  { label: "Projects", icon: <Pencil size={18} /> },
+  { label: "About", icon: <UserSearch size={18} /> }
 ];
 
 export function SideNav() {
   const [open, setOpen] = useState(true);
+  const [active, setActive] = useState("Projects");
+
+  const openAnimate = open
+    ? { scale: 1.2, x: 6, y: 6 }
+    : { scale: 1, x: 0, y: 0 };
+  const openTransition: Transition = {
+    type: "spring",
+    stiffness: 260,
+    damping: 24
+  };
 
   return (
     <motion.aside
       initial={false}
       animate={{ width: open ? NAV_OPEN : NAV_COLLAPSED }}
-      //   transition={{ type: "spring", stiffness: 100 }}
-      className="sticky top-0 bg-[var(--main-gray)]"
+      // transition={{ type: "spring", stiffness: 100 }}
+      className="sticky top-0 px-4 pt-6 bg-[var(--main-gray)]"
     >
-      <div className="flex items-center p-3">
-        <div className="flex-shrink-0">
-          <img
-            src={giuseppesAvatar}
-            alt="Giuseppe Messina"
-            className="w-10 h-10 rounded-full"
-          />
-        </div>
-        <AnimatePresence initial={false}>
-          {open && (
+      <div className="flex items-center gap-6">
+        <motion.img
+          animate={openAnimate}
+          transition={openTransition}
+          src={giuseppesAvatar}
+          alt="Giuseppe Messina"
+          className="w-10 h-10 rounded-full"
+        />
+
+        {open && (
+          <AnimatePresence>
             <motion.div
-              initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
-              animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
-              exit={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
-              transition={{ type: "spring", stiffness: 100 }}
-              className="overflow-hidden"
+              // initial={{ opacity: 0, x: -3 }}
+              animate={open ? { scale: 1.1 } : { scale: 1 }}
+              transition={openTransition}
             >
               <div className="whitespace-nowrap leading-tight">
                 <p className="text-sm font-semibold">Giuseppe Messina</p>
                 <p className="text-xs text-gray-500">Full Stack Developer</p>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        )}
 
-        <div className="absolute right-[-11px] w-6 h-6 rounded-full bg-[var(--main-gray)] flex items-center justify-center border border-[var(--light-gray)] hover:border-[var(--text-white)] transition-colors duration-300">
-          <ChevronRight
-            className={clsx(
-              " text-[var(--text-white)] cursor-pointer hover-color-red",
-              open && "rotate-180"
-            )}
+        {/* <motion.div
+          animate={open ? { x: 0, y: 4 } : { x: -8, y: 0 }}
+          transition={openTransition}
+        >
+          <div className="whitespace-nowrap leading-tight">
+            <p className="text-sm font-semibold">Giuseppe Messina</p>
+            <p className="text-xs text-gray-500">Full Stack Developer</p>
+          </div>
+        </motion.div> */}
+
+        <div className="absolute right-[-10px] w-5 h-5 rounded-full bg-[var(--main-gray)] border border-[var(--text-gray)] hover:border-[var(--text-white)] transition-colors duration-300">
+          <motion.div
             onClick={() => setOpen((o) => !o)}
-          />
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={openTransition}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+          >
+            <ChevronRight
+              className="text-[var(--text-gray)] hover:text-[var(--text-white)] transition-colors duration-300"
+              size={15}
+            />
+          </motion.div>
         </div>
       </div>
 
-      <nav className="mt-2 px-2">
+      <nav className="mt-10 flex flex-col gap-3">
         {items.map((item) => (
           <motion.button
             key={item.label}
             whileTap={{ scale: 0.98 }}
-            className="group w-full"
+            className={clsx(
+              "w-full cursor-pointer rounded-md flex items-center",
+              active === item.label &&
+                "border border-[var(--text-gray)] hover:border-[var(--text-white)] transition-colors duration-300 bg-[#2c2c2c]"
+            )}
+            animate={open ? { x: 6, y: 6 } : { x: 0, y: 0 }}
+            transition={openTransition}
           >
             <motion.div
               layout
-              className="flex items-center h-10 rounded-xl px-3 gap-3 text-gray-700 hover:bg-gray-100"
-              transition={{ type: "spring", stiffness: 260, damping: 24 }}
+              className="h-10 px-2 flex items-center w-full gap-6 text-[var(--text-gray)] hover:text-[var(--text-white)] transition-colors duration-300"
             >
-              <div className="grid place-items-center">{item.icon}</div>
+              <motion.div
+                transition={openTransition}
+                animate={open ? { scale: 1.2 } : { scale: 1 }}
+              >
+                {item.icon}
+              </motion.div>
 
-              <AnimatePresence initial={false}>
-                {open && (
-                  <motion.span
-                    key="label"
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -6 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                    className="truncate"
-                  >
-                    {item.label}
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              {open && (
+                <motion.span
+                  animate={open ? { scale: 1.2 } : { scale: 1 }}
+                  transition={openTransition}
+                  className="text-sm"
+                >
+                  {item.label}
+                </motion.span>
+              )}
             </motion.div>
           </motion.button>
         ))}
