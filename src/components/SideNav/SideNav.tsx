@@ -25,15 +25,22 @@ export function SideNav() {
   const openAnimate = open
     ? { scale: 1.2, x: 6, y: 6 }
     : { scale: 1, x: 0, y: 0 };
+
   const openTransition: Transition = {
     type: "spring",
     stiffness: 260,
     damping: 24
   };
 
+  const fadeInScaleMotion = {
+    initial: { opacity: 0 },
+    exit: { opacity: 1, scale: 1.1 },
+    animate: open ? { opacity: 1, scale: 1.1 } : { opacity: 0, scale: 1 },
+    transition: { ...openTransition, delay: 0.2 }
+  };
+
   return (
     <motion.aside
-      initial={false}
       animate={{ width: open ? NAV_OPEN : NAV_COLLAPSED }}
       // transition={{ type: "spring", stiffness: 100 }}
       className="sticky top-0 px-4 pt-6 bg-[var(--main-gray)]"
@@ -49,11 +56,7 @@ export function SideNav() {
 
         {open && (
           <AnimatePresence>
-            <motion.div
-              // initial={{ opacity: 0, x: -3 }}
-              animate={open ? { scale: 1.1 } : { scale: 1 }}
-              transition={openTransition}
-            >
+            <motion.div {...fadeInScaleMotion}>
               <div className="whitespace-nowrap leading-tight">
                 <p className="text-sm font-semibold">Giuseppe Messina</p>
                 <p className="text-xs text-gray-500">Full Stack Developer</p>
@@ -61,16 +64,6 @@ export function SideNav() {
             </motion.div>
           </AnimatePresence>
         )}
-
-        {/* <motion.div
-          animate={open ? { x: 0, y: 4 } : { x: -8, y: 0 }}
-          transition={openTransition}
-        >
-          <div className="whitespace-nowrap leading-tight">
-            <p className="text-sm font-semibold">Giuseppe Messina</p>
-            <p className="text-xs text-gray-500">Full Stack Developer</p>
-          </div>
-        </motion.div> */}
 
         <div className="absolute right-[-10px] w-5 h-5 rounded-full bg-[var(--main-gray)] border border-[var(--text-gray)] hover:border-[var(--text-white)] transition-colors duration-300">
           <motion.div
@@ -102,6 +95,10 @@ export function SideNav() {
           >
             <motion.div
               layout
+              // className={clsx(
+              //   "h-10 px-2 flex items-center w-full gap-6 text-[var(--text-gray)] hover:text-[var(--text-white)] transition-colors duration-300",
+              //   !open && "justify-center"
+              // )}
               className="h-10 px-2 flex items-center w-full gap-6 text-[var(--text-gray)] hover:text-[var(--text-white)] transition-colors duration-300"
             >
               <motion.div
@@ -112,11 +109,7 @@ export function SideNav() {
               </motion.div>
 
               {open && (
-                <motion.span
-                  animate={open ? { scale: 1.2 } : { scale: 1 }}
-                  transition={openTransition}
-                  className="text-sm"
-                >
+                <motion.span {...fadeInScaleMotion} className="text-sm">
                   {item.label}
                 </motion.span>
               )}
