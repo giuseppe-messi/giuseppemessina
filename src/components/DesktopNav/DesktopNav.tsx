@@ -7,7 +7,7 @@ import {
   Layers2,
   Linkedin,
   Pencil,
-  SendHorizontal,
+  Send,
   UserSearch
 } from "lucide-react";
 import { DesktopNavGroup } from "../DesktopNavGroup/DesktopNavGroup";
@@ -17,41 +17,42 @@ import { motion } from "motion/react";
 import { useState, type JSX } from "react";
 
 const NAV_OPEN = 240;
-const NAV_COLLAPSED = 80;
+const NAV_COLLAPSED = 77;
 
 export type NavItem = {
   label: string;
   icon: JSX.Element;
-  pos: number;
+  id: number;
 };
 
 const items: NavItem[] = [
-  { label: "Home", icon: <House size={20} />, pos: 1 },
+  { label: "Home", icon: <House size={20} />, id: 1 },
   {
     label: "Projects",
     icon: <Pencil size={20} />,
-    pos: 2
+    id: 2
   },
-  { label: "About", icon: <UserSearch size={20} />, pos: 3 }
+  { label: "About", icon: <UserSearch size={20} />, id: 3 }
 ];
 
 const resources: NavItem[] = [
-  { label: "Stack", icon: <Layers2 size={20} />, pos: 4 }
+  { label: "Stack", icon: <Layers2 size={20} />, id: 4 }
 ];
 
 const contacts: NavItem[] = [
   {
     label: "Contact",
-    icon: <SendHorizontal size={20} />,
-    pos: 5
+    icon: <Send size={20} />,
+    id: 5
   },
-  { label: "LinkedIn", icon: <Linkedin size={20} />, pos: 6 },
-  { label: "GitHub", icon: <Github size={20} />, pos: 7 }
+  { label: "LinkedIn", icon: <Linkedin size={20} />, id: 6 },
+  { label: "GitHub", icon: <Github size={20} />, id: 7 }
 ];
 
 export function DesktopNav() {
   const [isOpen, setIsOpen] = useState(true);
-  const [active, setActive] = useState("Projects");
+  const [activeId, setActiveId] = useState(2);
+  const handleSetId = (id: number) => setActiveId(id);
 
   return (
     <motion.nav
@@ -78,17 +79,24 @@ export function DesktopNav() {
         </div>
       </div>
 
-      <DesktopNavGroup items={items} isOpen={isOpen} activeItem={active} />
+      <DesktopNavGroup
+        items={items}
+        isOpen={isOpen}
+        activeId={activeId}
+        handleSetId={handleSetId}
+      />
       <DesktopNavGroup
         items={resources}
         isOpen={isOpen}
-        activeItem={active}
+        activeId={activeId}
+        handleSetId={handleSetId}
         label="RESOURCES"
       />
       <DesktopNavGroup
         items={contacts}
         isOpen={isOpen}
-        activeItem={active}
+        activeId={activeId}
+        handleSetId={handleSetId}
         label="CONNECT"
       />
 

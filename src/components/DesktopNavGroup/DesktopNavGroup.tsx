@@ -7,13 +7,15 @@ type DesktopNavItemProps = {
   label?: string;
   isOpen: boolean;
   items: NavItem[];
-  activeItem: string;
+  activeId: number;
+  handleSetId: (id: number) => void;
 };
 
 export const DesktopNavGroup = ({
   label,
   isOpen,
-  activeItem,
+  activeId,
+  handleSetId,
   items
 }: DesktopNavItemProps) => (
   <motion.div
@@ -38,7 +40,8 @@ export const DesktopNavGroup = ({
         key={item.label}
         item={item}
         isOpen={isOpen}
-        activeItem={activeItem}
+        activeId={activeId}
+        handleSetId={handleSetId}
       />
     ))}
   </motion.div>
