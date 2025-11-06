@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { borderLight, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
+import { Tooltip } from "react-tooltip";
 import type { NavItem } from "../DesktopNav/DesktopNav";
 
 type DesktopNavItemProps = {
@@ -25,6 +26,19 @@ export const DesktopNavItem = ({
         `bg-[#2c2c2c] ${borderLight} rounded-sm text-[var(--text-white)]`
     )}
   >
+    {/* <Tooltip
+      id="my-tooltip-2"
+      place="bottom"
+      style={{ background: "red" }}
+      content="I'm a info tooltip"
+    />
+    <div
+      data-tooltip-id="my-tooltip-2"
+      className="flex-none w-10 h-10 flex items-center justify-center"
+    >
+      {item.icon}
+    </div> */}
+
     <div className="flex-none w-10 h-10 flex items-center justify-center">
       {item.icon}
     </div>

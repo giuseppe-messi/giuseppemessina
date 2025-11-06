@@ -17,14 +17,16 @@ export const DesktopNavGroup = ({
   items
 }: DesktopNavItemProps) => (
   <motion.div
+    layout
     animate={isOpen ? { marginTop: 15 } : { marginTop: 0 }}
     className="w-full"
   >
     {label && isOpen && (
       <motion.div
+        layout
         transition={desktopNavTransition}
-        initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ scaleX: 1, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         className="origin-left flex items-center w-full gap-6 text-xs font-medium text-[var(--text-gray)] mt-6 ml-4"
       >
         <p>{label}</p>

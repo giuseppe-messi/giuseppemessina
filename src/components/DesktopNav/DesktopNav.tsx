@@ -17,7 +17,7 @@ import { motion } from "motion/react";
 import { useState, type JSX } from "react";
 
 const NAV_OPEN = 240;
-const NAV_COLLAPSED = 75;
+const NAV_COLLAPSED = 80;
 
 export type NavItem = {
   label: string;
@@ -44,9 +44,9 @@ const contacts: NavItem[] = [
     label: "Contact",
     icon: <SendHorizontal size={20} />,
     pos: 5
-  }
-  // { label: "LinkedIn", icon: <Linkedin size={20} />, pos: 6 },
-  // { label: "GitHub", icon: <Github size={20} />, pos: 7 }
+  },
+  { label: "LinkedIn", icon: <Linkedin size={20} />, pos: 6 },
+  { label: "GitHub", icon: <Github size={20} />, pos: 7 }
 ];
 
 export function DesktopNav() {
@@ -85,12 +85,12 @@ export function DesktopNav() {
         activeItem={active}
         label="RESOURCES"
       />
-      {/* <DesktopNavGroup
+      <DesktopNavGroup
         items={contacts}
         isOpen={isOpen}
         activeItem={active}
         label="CONNECT"
-      /> */}
+      />
 
       <div
         className={clsx(
