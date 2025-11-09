@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import type { NavItem } from "../../stores/useNav";
 
-const NAV_OPEN = 240;
+const NAV_OPEN = 320;
 const NAV_COLLAPSED = 77;
 
 type DesktopNavProps = {
@@ -24,9 +24,9 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
     <motion.nav
       animate={{ width: isOpen ? NAV_OPEN : NAV_COLLAPSED }}
       transition={desktopNavTransition}
-      className="sticky top-0 px-4 pt-6 bg-[var(--main-gray)] flex flex-col items-center"
+      className="sticky top-0 px-6 pt-6 bg-[var(--main-gray)] flex flex-col items-center"
     >
-      <div className="flex items-center w-full mb-2 gap-6">
+      <div className="flex items-center w-full mb-6 gap-6">
         <div className="flex-none w-10 h-10">
           <motion.img
             transition={desktopNavTransition}
@@ -39,8 +39,10 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
 
         <div className="overflow-hidden">
           <div className="whitespace-nowrap leading-tight">
-            <p className="text-sm font-semibold">Giuseppe Messina</p>
-            <p className="text-xs text-gray-500">Full Stack Developer</p>
+            <p className="text-lg font-semibold">Giuseppe Messina</p>
+            <p className="text-md text-[var(--text-gray)]">
+              Full Stack Developer
+            </p>
           </div>
         </div>
       </div>
@@ -68,7 +70,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
 
       <div
         className={clsx(
-          "absolute top-[38px] right-[-10px] w-5 h-5 rounded-full bg-[var(--main-gray)]",
+          "absolute top-[36px] right-[-16px] w-8 h-8 rounded-full bg-[var(--main-gray)]",
           hoverBlockBorderDivAndText
         )}
       >
@@ -82,7 +84,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
             className={clsx(
               "absolute left-1/2 top-1/2 -translate-x-[47%] -translate-y-1/2"
             )}
-            size={15}
+            size={19}
           />
         </motion.div>
       </div>

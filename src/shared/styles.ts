@@ -4,12 +4,12 @@ export const hoverText = `
   transition-colors duration-300
 `;
 
-export const appRadius = "";
+export const borderMedium = "border border-[var(--medium-gray)]";
 
 export const borderLight = "border border-[var(--light-gray)]";
 
 export const hoverBlockBorderDivAndText = `
-  ${borderLight}
+  ${borderMedium}
   text-[var(--text-gray)]
   hover:text-[var(--text-white)]
   transition-colors duration-300

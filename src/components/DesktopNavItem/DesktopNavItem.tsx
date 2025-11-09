@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { borderLight, hoverText } from "../../shared/styles";
+import { borderLight, borderMedium, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
 import { Tooltip } from "react-tooltip";
@@ -27,16 +27,17 @@ export const DesktopNavItem = ({
       whileTap={{ scale: 0.95 }}
       onClick={() => setActiveId(item.id)}
       className={clsx(
-        `flex items-center w-full gap-2 ${hoverText} cursor-pointer outline-none shadow-none border-transparent`,
-        isActive &&
-          `bg-[#2c2c2c] ${borderLight} rounded-sm text-[var(--text-white)]`
+        `flex items-center w-full gap-2 p-1 ${hoverText} cursor-pointer`,
+        isActive
+          ? `bg-[#2c2c2c] ${borderLight} rounded-sm text-[var(--text-white)]`
+          : "border-transparent"
       )}
     >
       <Tooltip
         id={item.label}
         place="right"
         noArrow
-        border="1px solid var(--light-gray)"
+        border="1px solid var(--medium-gray)"
         style={{
           background: "var(--main-gray)",
           borderRadius: 12,
@@ -57,10 +58,13 @@ export const DesktopNavItem = ({
 
       <div className="overflow-hidden flex items-center justify-between mr-3 w-full">
         <div className="whitespace-nowrap leading-tight">
-          <p className="text-sm font-semibold"> {item.label}</p>
+          <p className="text-lg font-medium"> {item.label}</p>
         </div>
         <div
-          className={`${borderLight} w-5 h-6 text-xs flex items-center justify-center rounded-sm`}
+          className={clsx(
+            `w-6 h-7 text-md flex items-center justify-center rounded-sm`,
+            isActive ? borderLight : borderMedium
+          )}
         >
           {item.id}
         </div>

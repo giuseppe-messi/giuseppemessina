@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { borderLight } from "../../shared/styles";
+import { borderMedium } from "../../shared/styles";
 import type { NavItem } from "../../stores/useNav";
 
 type MobileNavItemProps = {
@@ -22,7 +22,7 @@ export const MobileNavItem = ({
       className={clsx(
         "flex flex-col p-2 items-center gap-2 min-w-18 flex-shrink-0 text-sm text-[var(--text-gray)]",
         isActive &&
-          `${borderLight} bg-[#2c2c2c] rounded-sm text-[var(--text-white)]`
+          `${borderMedium} bg-[#2c2c2c] rounded-sm text-[var(--text-white)]`
       )}
     >
       <div>{item.icon}</div>
