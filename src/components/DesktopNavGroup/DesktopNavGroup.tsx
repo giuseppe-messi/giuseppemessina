@@ -1,21 +1,21 @@
 import { DesktopNavItem } from "../DesktopNavItem/DesktopNavItem";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
-import type { NavItem } from "../DesktopNav/DesktopNav";
+import type { NavItem } from "../../stores/useNav";
 
 type DesktopNavItemProps = {
   label?: string;
   isOpen: boolean;
   items: NavItem[];
   activeId: number;
-  handleSetId: (id: number) => void;
+  setActiveId: (id: number) => void;
 };
 
 export const DesktopNavGroup = ({
   label,
   isOpen,
   activeId,
-  handleSetId,
+  setActiveId,
   items
 }: DesktopNavItemProps) => (
   <motion.div
@@ -41,7 +41,7 @@ export const DesktopNavGroup = ({
         item={item}
         isOpen={isOpen}
         activeId={activeId}
-        handleSetId={handleSetId}
+        setActiveId={setActiveId}
       />
     ))}
   </motion.div>

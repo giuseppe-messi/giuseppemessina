@@ -1,58 +1,24 @@
 import clsx from "clsx";
 import giuseppesAvatar from "../../assets/giuseppe.jpeg";
-import {
-  ChevronRight,
-  Github,
-  House,
-  Layers2,
-  Linkedin,
-  Pencil,
-  Send,
-  UserSearch
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { DesktopNavGroup } from "../DesktopNavGroup/DesktopNavGroup";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { hoverBlockBorderDivAndText } from "../../shared/styles";
 import { motion } from "motion/react";
-import { useState, type JSX } from "react";
+import { useState } from "react";
+import type { NavItem } from "../../stores/useNav";
 
 const NAV_OPEN = 240;
 const NAV_COLLAPSED = 77;
 
-export type NavItem = {
-  label: string;
-  icon: JSX.Element;
-  id: number;
+type DesktopNavProps = {
+  items: NavItem[];
+  activeId: number;
+  setActiveId: (id: number) => void;
 };
 
-const items: NavItem[] = [
-  { label: "Home", icon: <House size={20} />, id: 1 },
-  {
-    label: "Projects",
-    icon: <Pencil size={20} />,
-    id: 2
-  },
-  { label: "About", icon: <UserSearch size={20} />, id: 3 }
-];
-
-const resources: NavItem[] = [
-  { label: "Stack", icon: <Layers2 size={20} />, id: 4 }
-];
-
-const contacts: NavItem[] = [
-  {
-    label: "Contact",
-    icon: <Send size={20} />,
-    id: 5
-  },
-  { label: "LinkedIn", icon: <Linkedin size={20} />, id: 6 },
-  { label: "GitHub", icon: <Github size={20} />, id: 7 }
-];
-
-export function DesktopNav() {
+export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
   const [isOpen, setIsOpen] = useState(true);
-  const [activeId, setActiveId] = useState(2);
-  const handleSetId = (id: number) => setActiveId(id);
 
   return (
     <motion.nav
@@ -80,23 +46,23 @@ export function DesktopNav() {
       </div>
 
       <DesktopNavGroup
-        items={items}
+        items={items.filter((i) => i.section === "main")}
         isOpen={isOpen}
         activeId={activeId}
-        handleSetId={handleSetId}
+        setActiveId={setActiveId}
       />
       <DesktopNavGroup
-        items={resources}
+        items={items.filter((i) => i.section === "resources")}
         isOpen={isOpen}
         activeId={activeId}
-        handleSetId={handleSetId}
+        setActiveId={setActiveId}
         label="RESOURCES"
       />
       <DesktopNavGroup
-        items={contacts}
+        items={items.filter((i) => i.section === "contacts")}
         isOpen={isOpen}
         activeId={activeId}
-        handleSetId={handleSetId}
+        setActiveId={setActiveId}
         label="CONNECT"
       />
 

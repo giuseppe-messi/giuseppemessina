@@ -3,19 +3,19 @@ import { borderLight, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
 import { Tooltip } from "react-tooltip";
-import type { NavItem } from "../DesktopNav/DesktopNav";
+import type { NavItem } from "../../stores/useNav";
 
 type DesktopNavItemProps = {
   isOpen: boolean;
   item: NavItem;
   activeId: number;
-  handleSetId: (id: number) => void;
+  setActiveId: (id: number) => void;
 };
 
 export const DesktopNavItem = ({
   isOpen,
   activeId,
-  handleSetId,
+  setActiveId,
   item
 }: DesktopNavItemProps) => {
   const isActive = activeId === item.id;
@@ -25,7 +25,7 @@ export const DesktopNavItem = ({
       transition={desktopNavTransition}
       animate={isOpen ? { y: 10 } : { y: 0 }}
       whileTap={{ scale: 0.95 }}
-      onClick={() => handleSetId(item.id)}
+      onClick={() => setActiveId(item.id)}
       className={clsx(
         `flex items-center w-full gap-2 ${hoverText} cursor-pointer outline-none shadow-none border-transparent`,
         isActive &&
