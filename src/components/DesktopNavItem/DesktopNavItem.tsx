@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { borderLight, borderMedium, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
-import { Tooltip } from "react-tooltip";
 import type { NavItem } from "../../stores/useNav";
 
 type DesktopNavItemProps = {
@@ -33,24 +32,9 @@ export const DesktopNavItem = ({
           : "border-transparent"
       )}
     >
-      <Tooltip
-        id={item.label}
-        place="right"
-        noArrow
-        border="1px solid var(--medium-gray)"
-        style={{
-          background: "var(--main-gray)",
-          borderRadius: 12,
-          height: 30,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-        content={item.label}
-        disableTooltip={() => isOpen}
-      />
       <div
-        data-tooltip-id={item.label}
+        data-tooltip-id="tooltip"
+        data-tooltip-content={item.label}
         className="flex-none w-10 h-10 flex items-center justify-center"
       >
         {item.icon}

@@ -5,11 +5,12 @@ import { DesktopNavGroup } from "../DesktopNavGroup/DesktopNavGroup";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { hoverBlockBorderDivAndText } from "../../shared/styles";
 import { motion } from "motion/react";
+import { Tooltip } from "react-tooltip";
 import { useState } from "react";
 import type { NavItem } from "../../stores/useNav";
 
 const NAV_OPEN = 320;
-const NAV_COLLAPSED = 77;
+const NAV_COLLAPSED = 98;
 
 type DesktopNavProps = {
   items: NavItem[];
@@ -26,8 +27,11 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
       transition={desktopNavTransition}
       className="sticky top-0 px-6 pt-6 bg-[var(--main-gray)] flex flex-col items-center"
     >
-      <div className="flex items-center w-full mb-6 gap-6">
-        <div className="flex-none w-10 h-10">
+      <motion.div
+        animate={isOpen ? { x: 5 } : { x: 2 }}
+        className="flex items-center w-full mb-6 gap-6"
+      >
+        <div className="flex-none w-12 h-12">
           <motion.img
             transition={desktopNavTransition}
             animate={isOpen ? { scale: 1.2 } : { scale: 1 }}
@@ -45,7 +49,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <DesktopNavGroup
         items={items.filter((i) => i.section === "main")}
@@ -70,7 +74,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
 
       <div
         className={clsx(
-          "absolute top-[36px] right-[-16px] w-8 h-8 rounded-full bg-[var(--main-gray)]",
+          "absolute top-[36px] right-[-14px] w-7 h-7 rounded-full bg-[var(--main-gray)]",
           hoverBlockBorderDivAndText
         )}
       >
@@ -88,6 +92,22 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
           />
         </motion.div>
       </div>
+
+      <Tooltip
+        id="tooltip"
+        place="right"
+        noArrow
+        border="1px solid var(--medium-gray)"
+        style={{
+          background: "var(--main-gray)",
+          borderRadius: 12,
+          height: 30,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+        disableTooltip={() => isOpen}
+      />
     </motion.nav>
   );
 }
