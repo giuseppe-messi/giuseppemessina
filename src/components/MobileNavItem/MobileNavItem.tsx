@@ -20,7 +20,7 @@ export const MobileNavItem = ({
       key={item.id}
       onClick={() => setActiveId(item.id)}
       className={clsx(
-        "flex flex-col p-2 items-center gap-2 min-w-18 flex-shrink-0 text-sm text-[var(--text-gray)]",
+        "flex flex-col p-1 items-center gap-3 min-w-18 flex-shrink-0 text-xs text-[var(--text-gray)]",
         isActive &&
           `${borderMedium} bg-[#2c2c2c] rounded-sm text-[var(--text-white)]`
       )}

@@ -42,11 +42,11 @@ export const DesktopNavItem = ({
 
       <div className="overflow-hidden flex items-center justify-between mr-3 w-full">
         <div className="whitespace-nowrap leading-tight">
-          <p className="text-lg font-medium"> {item.label}</p>
+          <p className="text-md font-medium"> {item.label}</p>
         </div>
         <div
           className={clsx(
-            `w-6 h-7 text-md flex items-center justify-center rounded-sm`,
+            `w-6 h-7 text-xs flex items-center justify-center rounded-sm`,
             isActive ? borderLight : borderMedium
           )}
         >

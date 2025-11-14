@@ -20,25 +20,25 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Home", icon: <House size={22} />, section: "main", id: 1 },
+  { label: "Home", icon: <House size={20} />, section: "main", id: 1 },
   {
     label: "Projects",
-    icon: <Pencil size={22} />,
+    icon: <Pencil size={20} />,
     section: "main",
     id: 2
   },
-  { label: "About", icon: <UserSearch size={22} />, section: "main", id: 3 },
-  { label: "Stack", icon: <Layers2 size={22} />, section: "resources", id: 4 },
+  { label: "About", icon: <UserSearch size={20} />, section: "main", id: 3 },
+  { label: "Stack", icon: <Layers2 size={20} />, section: "resources", id: 4 },
 
   {
     label: "Contact",
-    icon: <Send size={22} />,
+    icon: <Send size={20} />,
     section: "contacts",
     id: 5
   },
   {
     label: "LinkedIn",
-    icon: <Linkedin size={22} />,
+    icon: <Linkedin size={20} />,
     section: "contacts",
     id: 6
   },

@@ -43,8 +43,8 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
 
         <div className="overflow-hidden">
           <div className="whitespace-nowrap leading-tight">
-            <p className="text-lg font-semibold">Giuseppe Messina</p>
-            <p className="text-md text-[var(--text-gray)]">
+            <p className="text-md font-semibold">Giuseppe Messina</p>
+            <p className="text-sm text-[var(--text-gray)]">
               Full Stack Developer
             </p>
           </div>

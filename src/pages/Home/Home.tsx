@@ -1,10 +1,10 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React from "react";
+import { motion } from "motion/react";
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center text-center">
-      <motion.h1
+    <div className="min-h-screen flex items-center justify-center">
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
             Frontend-leaning
           </motion.span>
         </div>
-      </motion.h1>
+      </motion.div>
     </div>
   );
 };
