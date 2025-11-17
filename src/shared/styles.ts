@@ -14,3 +14,6 @@ export const hoverBlockBorderDivAndText = `
   hover:text-[var(--text-white)]
   transition-colors duration-300
 `;
+
+export const fadedText =
+  "bg-[linear-gradient(95deg,_#f6f6f6_0%,_#f6f6f6_35%,_#9a9a9a_70%,_#3a3a3a_100%)] bg-clip-text text-transparent";

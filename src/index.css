@@ -21,6 +21,8 @@
   --light-gray: #464646;
   --text-white: #f6f6f6;
   --text-gray: #858585;
+  --cta-full-bg: #2c2c2c;
+  --cta-full-bg-hover: #232323;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -5,8 +5,8 @@ import { Toaster } from "@react-lab-mono/ui";
 export const Layout = () => (
   <div className="flex">
     <NavContainer />
-    <main className="flex flex-col flex-1">
-      <div className="min-h-screen max-w-300 m-auto px-15 mt-30">
+    <main className="flex flex-col flex-1 max-w-250">
+      <div className="min-h-screen m-auto mt-30">
         <Outlet />
       </div>
     </main>
