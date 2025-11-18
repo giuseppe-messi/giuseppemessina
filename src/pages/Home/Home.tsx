@@ -1,8 +1,20 @@
 import React from "react";
 import { IntroHeader } from "../../components/IntroHeader/IntroHeader";
 import { Button } from "../../components/Button/Button";
-import { Copy } from "lucide-react";
-import giuseppesAvatar from "../../assets/giuseppe.jpeg";
+import { Copy, Search } from "lucide-react";
+import { ProjectThumbNail } from "../../components/ProjectThumbNail/ProjectThumbNail";
+import { projects } from "../../shared/projects";
+import { Card } from "../../components/Card/Card";
+import ReactSvg from "../../assets/logos/react.svg?react";
+import TsSvg from "../../assets/logos/ts.svg?react";
+import ReduxSvg from "../../assets/logos/redux.svg?react";
+import JsSvg from "../../assets/logos/js.svg?react";
+import HtmlSvg from "../../assets/logos/html.svg?react";
+import CssSvg from "../../assets/logos/css.svg?react";
+import MuiSvg from "../../assets/logos/mui.svg?react";
+import StorybookSvg from "../../assets/logos/storybook.svg?react";
+
+import { Icon } from "../../components/Icon/Icon";
 
 const Home: React.FC = () => {
   return (
@@ -21,32 +33,71 @@ const Home: React.FC = () => {
 
       <h2 className="mt-15 font-semibold">New Drops</h2>
 
-      <div>
-        <div className="group mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-zinc-900 via-neutral-900 to-zinc-800 p-[1px] shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
-          <div className="flex h-full flex-col rounded-3xl bg-zinc-950/90">
-            <div className="h-80 rounded-3xl bg-gradient-to-br from-zinc-800 via-zinc-700 to-zinc-900 flex items-center justify-center">
-              <div className="w-[70%] max-w-xl aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-transform duration-700 ease-out group-hover:scale-[1.03] group-hover:-translate-y-1">
-                <img
-                  src={giuseppesAvatar}
-                  alt="Billify template preview"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-end justify-between gap-4 px-6 pb-6 pt-5">
-              <div>
-                <p className="text-xl font-semibold text-white">Billify</p>
-                <p className="text-sm text-zinc-400">Template</p>
-              </div>
-
-              <div className="rounded-full border border-zinc-700/80 bg-zinc-900/80 px-5 py-2 text-sm font-medium text-zinc-100">
-                $25
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="flex flex-wrap gap-10">
+        {projects.map((p) => (
+          <ProjectThumbNail
+            key={p.title}
+            title={p.title}
+            desc={p.desc}
+            thumbnailImg={p.thumbnailImg}
+          />
+        ))}
       </div>
+
+      <br />
+      <br />
+
+      <Card>
+        <div>
+          <p className="text-md font-semibold text-white mb-1">
+            About Giuseppe
+          </p>
+          <p className="text-sm text-zinc-400 text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus
+            turpis ac nisi mollis, quis aliquet ante ullamcorper. Maecenas
+            laoreet nulla semper vulputate consectetur. Vivamus fringilla semper
+            est eu placerat. Fusce ac pellentesque metus. Morbi a dui vitae
+            mauris ultrices blandit nec id ex. Aenean id interdum lorem. Nulla
+            facilisi. Proin ut magna neque. Sed et mauris nec massa luctus
+            <br />
+            <br />
+            scelerisque. Sed maximus, turpis in finibus tempus, erat nunc
+            interdum lectus, vel mattis nisl nunc posuere justo. Integer aliquam
+            magna in odio commodo eleifend. Donec tincidunt augue ac ipsum
+            finibus finibus. Proin semper velit sed risus congue, ut vulputate
+            nisl sagittis.
+          </p>
+        </div>
+
+        <div className="rounded-full border border-[#2c2c2c] px-4 py-2 text-sm font-medium">
+          <Search size={15} color="var(--text-gray)" />
+        </div>
+      </Card>
+
+      <br />
+      <br />
+
+      <Card type="columns">
+        <div>
+          <p className="text-md font-semibold text-white mb-1">Stack</p>
+          <p className="text-sm text-zinc-400">
+            Software and resources I use on a regular basis.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 my-6">
+          <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={TsSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={ReduxSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={JsSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={HtmlSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={CssSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={MuiSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={StorybookSvg} title="React" desc="Javascript Framework" />
+        </div>
+
+        <Button className="w-full">View all</Button>
+      </Card>
     </>
   );
 };

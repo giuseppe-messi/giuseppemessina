@@ -25,7 +25,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
     <motion.nav
       animate={{ width: isOpen ? NAV_OPEN : NAV_COLLAPSED }}
       transition={desktopNavTransition}
-      className="sticky top-0 px-6 pt-6 bg-[var(--main-gray)] flex flex-col items-center"
+      className="sticky top-0 left-0 h-[100vh] px-6 pt-6 bg-[var(--main-gray)] flex flex-col items-center"
     >
       <motion.div
         animate={isOpen ? { x: 5 } : { x: 2 }}
