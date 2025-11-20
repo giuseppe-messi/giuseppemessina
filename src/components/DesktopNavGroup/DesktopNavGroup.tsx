@@ -35,14 +35,16 @@ export const DesktopNavGroup = ({
       </motion.div>
     )}
 
-    {items.map((item) => (
-      <DesktopNavItem
-        key={item.label}
-        item={item}
-        isOpen={isOpen}
-        activeId={activeId}
-        setActiveId={setActiveId}
-      />
-    ))}
+    <div className="flex flex-col gap-2">
+      {items.map((item) => (
+        <DesktopNavItem
+          key={item.label}
+          item={item}
+          isOpen={isOpen}
+          activeId={activeId}
+          setActiveId={setActiveId}
+        />
+      ))}
+    </div>
   </motion.div>
 );

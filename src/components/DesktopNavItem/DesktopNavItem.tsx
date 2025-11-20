@@ -26,7 +26,7 @@ export const DesktopNavItem = ({
       whileTap={{ scale: 0.95 }}
       onClick={() => setActiveId(item.id)}
       className={clsx(
-        `flex items-center w-full gap-2 p-1 ${hoverText} cursor-pointer`,
+        `flex items-center w-full gap-3 p-1 ${hoverText} cursor-pointer`,
         isActive
           ? `bg-[#2c2c2c] ${borderLight} rounded-sm text-[var(--text-white)]`
           : "border-transparent"
@@ -35,18 +35,18 @@ export const DesktopNavItem = ({
       <div
         data-tooltip-id="tooltip"
         data-tooltip-content={item.label}
-        className="flex-none w-10 h-10 flex items-center justify-center"
+        className="flex-none w-8 h-8 flex items-center justify-center"
       >
         {item.icon}
       </div>
 
       <div className="overflow-hidden flex items-center justify-between mr-3 w-full">
         <div className="whitespace-nowrap leading-tight">
-          <p className="text-md font-medium"> {item.label}</p>
+          <p className="text-sm font-medium"> {item.label}</p>
         </div>
         <div
           className={clsx(
-            `w-6 h-7 text-xs flex items-center justify-center rounded-sm`,
+            `w-5 h-6 text-xs flex items-center justify-center rounded-sm`,
             isActive ? borderLight : borderMedium
           )}
         >

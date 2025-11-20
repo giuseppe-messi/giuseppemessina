@@ -9,8 +9,8 @@ import { Tooltip } from "react-tooltip";
 import { useState } from "react";
 import type { NavItem } from "../../stores/useNav";
 
-const NAV_OPEN = 320;
-const NAV_COLLAPSED = 98;
+const NAV_OPEN = 280;
+const NAV_COLLAPSED = 90;
 
 type DesktopNavProps = {
   items: NavItem[];
@@ -25,13 +25,13 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
     <motion.nav
       animate={{ width: isOpen ? NAV_OPEN : NAV_COLLAPSED }}
       transition={desktopNavTransition}
-      className="sticky top-0 left-0 h-[100vh] px-6 pt-6 bg-[var(--main-gray)] flex flex-col items-center"
+      className="sticky top-0 left-0 h-[100vh] px-6 pt-7 bg-[var(--main-gray)] flex flex-col items-center"
     >
       <motion.div
-        animate={isOpen ? { x: 5 } : { x: 2 }}
-        className="flex items-center w-full mb-6 gap-6"
+        animate={isOpen ? { x: 5 } : { x: 4 }}
+        className="flex items-center w-full mb-4 gap-6"
       >
-        <div className="flex-none w-12 h-12">
+        <div className="flex-none w-10 h-10">
           <motion.img
             transition={desktopNavTransition}
             animate={isOpen ? { scale: 1.2 } : { scale: 1 }}
@@ -43,7 +43,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
 
         <div className="overflow-hidden">
           <div className="whitespace-nowrap leading-tight">
-            <p className="text-md font-semibold">Giuseppe Messina</p>
+            <p className="text-sm font-semibold">Giuseppe Messina</p>
             <p className="text-sm text-[var(--text-gray)]">
               Full Stack Developer
             </p>
@@ -74,7 +74,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
 
       <div
         className={clsx(
-          "absolute top-[36px] right-[-14px] w-7 h-7 rounded-full bg-[var(--main-gray)]",
+          "absolute top-[37px] right-[-10px] w-5 h-5 rounded-full bg-[var(--main-gray)]",
           hoverBlockBorderDivAndText
         )}
       >
@@ -88,7 +88,7 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
             className={clsx(
               "absolute left-1/2 top-1/2 -translate-x-[47%] -translate-y-1/2"
             )}
-            size={19}
+            size={17}
           />
         </motion.div>
       </div>
