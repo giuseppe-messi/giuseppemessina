@@ -89,7 +89,11 @@ const homeComponents = [
     </div>
 
     <Button className="w-full">View all</Button>
-  </Card>
+  </Card>,
+  <>
+    <br />
+    <br />
+  </>
 ];
 
 const Home: React.FC = () => (
