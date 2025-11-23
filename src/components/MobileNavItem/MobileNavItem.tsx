@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { borderMedium } from "../../shared/styles";
 import type { NavItem } from "../../stores/useNav";
+import { useNavigate } from "react-router-dom";
 
 type MobileNavItemProps = {
   item: NavItem;
@@ -13,12 +14,20 @@ export const MobileNavItem = ({
   activeId,
   setActiveId
 }: MobileNavItemProps) => {
+  const navigate = useNavigate();
   const isActive = activeId === item.id;
 
   return (
     <div
       key={item.id}
-      onClick={() => setActiveId(item.id)}
+      onClick={() => {
+        if (item.isExternal)
+          window.open(item.url, "_blank", "noopener,noreferrer");
+        else {
+          setActiveId(item.id);
+          navigate(item.url);
+        }
+      }}
       className={clsx(
         "flex flex-col p-1 items-center gap-3 min-w-18 flex-shrink-0 text-xs text-[var(--text-gray)]",
         isActive &&

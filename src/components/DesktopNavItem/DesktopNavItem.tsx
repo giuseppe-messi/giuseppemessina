@@ -3,6 +3,7 @@ import { borderLight, borderMedium, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
 import type { NavItem } from "../../stores/useNav";
+import { useNavigate } from "react-router-dom";
 
 type DesktopNavItemProps = {
   isOpen: boolean;
@@ -17,6 +18,7 @@ export const DesktopNavItem = ({
   setActiveId,
   item
 }: DesktopNavItemProps) => {
+  const navigate = useNavigate();
   const isActive = activeId === item.id;
 
   return (
@@ -24,7 +26,14 @@ export const DesktopNavItem = ({
       transition={desktopNavTransition}
       animate={isOpen ? { y: 10 } : { y: 0 }}
       whileTap={{ scale: 0.95 }}
-      onClick={() => setActiveId(item.id)}
+      onClick={() => {
+        if (item.isExternal)
+          window.open(item.url, "_blank", "noopener,noreferrer");
+        else {
+          setActiveId(item.id);
+          navigate(item.url);
+        }
+      }}
       className={clsx(
         `flex items-center w-full gap-3 p-1 ${hoverText} cursor-pointer`,
         isActive
