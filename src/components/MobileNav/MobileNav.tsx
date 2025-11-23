@@ -8,7 +8,7 @@ type MobileNavProps = {
 };
 
 export const MobileNav = ({ items, activeId, setActiveId }: MobileNavProps) => (
-  <nav className="fixed p-4 bg-[var(--main-gray)] overflow-x-scroll whitespace-nowrap flex justify-around bottom-0 w-full">
+  <nav className="fixed py-2 gap-2 bg-[var(--main-gray)] overflow-x-scroll whitespace-nowrap flex justify-around bottom-0 w-full border-t-1 border-[var(--medium-gray)]">
     {items.flatMap((item) => (
       <MobileNavItem
         key={item.id}

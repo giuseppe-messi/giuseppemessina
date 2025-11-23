@@ -72,8 +72,8 @@ export const Footer = () => {
   }, []);
 
   return (
-    <div className="bg-[var(--main-gray)] w-full pt-10">
-      <div className="mx-auto max-w-250 border-b border-[var(--medium-gray)] pb-10">
+    <>
+      <div className="border-b border-[var(--medium-gray)] pb-10">
         <table className="w-full text-sm [&_th,&_td]:p-2 [&_th,&_td]:w-10">
           <thead>
             <tr className="[&>th]:text-start">
@@ -126,6 +126,6 @@ export const Footer = () => {
       <div className="mx-auto max-w-250 text-end mb-5 text-sm text-[var(--text-gray)]">
         <p>@ Giuseppe Messina</p>
       </div>
-    </div>
+    </>
   );
 };

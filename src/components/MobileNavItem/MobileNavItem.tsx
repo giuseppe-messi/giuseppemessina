@@ -29,7 +29,7 @@ export const MobileNavItem = ({
         }
       }}
       className={clsx(
-        "flex flex-col p-1 items-center gap-3 min-w-18 flex-shrink-0 text-xs text-[var(--text-gray)]",
+        "flex flex-col py-2 items-center gap-1 min-w-16 flex-shrink-0 text-xs text-[var(--text-gray)]",
         isActive &&
           `${borderMedium} bg-[#2c2c2c] rounded-sm text-[var(--text-white)]`
       )}

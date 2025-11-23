@@ -7,10 +7,14 @@ export const Layout = () => (
   <div className="flex">
     <NavContainer />
     <main className="flex flex-col items-center flex-1">
-      <div className="min-h-screen flex flex-col max-w-250 items-start mt-30">
+      <div className="min-h-screen px-15 flex flex-col max-w-270 items-start mt-30">
         <Outlet />
       </div>
-      <Footer />
+      <div className="bg-[var(--main-gray)] w-full">
+        <div className="max-w-270 px-15 pt-10 mx-auto">
+          <Footer />
+        </div>
+      </div>
     </main>
     <Toaster />
   </div>
