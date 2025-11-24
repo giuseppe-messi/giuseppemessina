@@ -17,3 +17,5 @@ export const hoverBlockBorderDivAndText = `
 
 export const fadedText =
   "bg-[linear-gradient(95deg,_#f6f6f6_0%,_#f6f6f6_35%,_#9a9a9a_70%,_#3a3a3a_100%)] bg-clip-text text-transparent";
+
+export const cardH2 = "text-md font-semibold text-white mb-3";

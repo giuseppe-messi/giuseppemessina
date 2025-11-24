@@ -10,7 +10,7 @@ type Project = {
 export const projects: Project[] = [
   {
     title: "Optimistic UI Sandbox",
-    desc: "A sandbox testing failures and latency",
+    desc: "Testing API's failures and latency",
     thumbnailImg: optimisticUiSandbox
   },
   {

@@ -2,6 +2,35 @@ import { MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
+const headers = ["Index", "Projects", "Resources", "Connect"];
+
+const tableData = [
+  {
+    index: "Home",
+    projects: "Optimistic UI Sandbox",
+    resources: "Stack",
+    connect: "Contact"
+  },
+  {
+    index: "Projects",
+    projects: "Chat App",
+    resources: "",
+    connect: "LinkedIn"
+  },
+  {
+    index: "About",
+    projects: "Chat App",
+    resources: "",
+    connect: "GitHub"
+  },
+  {
+    index: "",
+    projects: "Chat App",
+    resources: "",
+    connect: ""
+  }
+];
+
 const londonFormatter = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/London",
   hour: "2-digit",
@@ -64,7 +93,6 @@ export const Footer = () => {
 
   useEffect(() => {
     const id = setInterval(() => {
-      console.log("INTERVALLLLLL HEREEEE");
       setLondonTime(getLondonTime());
     }, 1000 * 60);
 
@@ -74,44 +102,45 @@ export const Footer = () => {
   return (
     <>
       <div className="border-b border-[var(--medium-gray)] pb-10">
-        <table className="w-full text-sm [&_th,&_td]:p-2 [&_th,&_td]:w-10">
-          <thead>
-            <tr className="[&>th]:text-start">
-              <th>Index</th>
-              <th>Projects</th>
-              <th>Resources</th>
-              <th>Connect</th>
-            </tr>
-          </thead>
-          <tbody className="text-[var(--text-gray)]">
-            <tr>
-              <td>Home</td>
-              <td>Optimistic UI Sandbox</td>
-              <td>Stack</td>
-              <td>Contact</td>
-            </tr>
-            <tr>
-              <td>Projects</td>
-              <td>Chat App</td>
-              <td></td>
-              <td>LinkedIn</td>
-            </tr>
-            <tr>
-              <td>About</td>
-              <td>Chat App</td>
-              <td></td>
-              <td>GitHub</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Chat App</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        {/* desktop view */}
+        <div className="hidden sm:block">
+          <table className="w-full text-sm [&_th,&_td]:p-2 [&_th,&_td]:w-10">
+            <thead>
+              <tr className="[&>th]:text-start">
+                {headers.map((h) => (
+                  <th key={h}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+
+            <tbody>
+              {tableData.map((row, i) => (
+                <tr key={i} className="text-[var(--text-gray)]">
+                  <td>{row.index}</td>
+                  <td>{row.projects}</td>
+                  <td>{row.resources}</td>
+                  <td>{row.connect}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* mobile view */}
+        <div className="sm:hidden grid grid-cols-2 gap-10 text-sm">
+          {tableData.map((row, i) => (
+            <div key={i} className="text-[var(--text-gray)]">
+              <p className="font-semibold text-white mb-2">{headers[i]}</p>
+
+              <p>{row.index}</p>
+              <p>{row.projects}</p>
+              <p>{row.resources}</p>
+              <p>{row.connect}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="mx-auto max-w-250 flex py-10 border-b border-[var(--medium-gray)] mb-20">
+      <div className="mx-auto max-w-250 flex flex-col gap-8 sm:flex-row sm:gap-0 py-10 border-b border-[var(--medium-gray)] mb-20">
         <div className="flex-1 text-sm">
           <p className="flex gap-1 mb-2">Currently {status}</p>
           <div className="flex items-center gap-2 text-[var(--text-gray)]">
@@ -120,10 +149,12 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex-1">
-          <p className="text-7xl text-[var(--text-gray)] ">{londonTime.time}</p>
+          <p className="text-7xl text-[var(--text-gray)] whitespace-nowrap">
+            {londonTime.time}
+          </p>
         </div>
       </div>
-      <div className="mx-auto max-w-250 text-end mb-5 text-sm text-[var(--text-gray)]">
+      <div className="mx-auto max-w-250 text-end pb-22 text-xs lg:text-sm lg:pb-0 mb-5 text-[var(--text-gray)]">
         <p>@ Giuseppe Messina</p>
       </div>
     </>

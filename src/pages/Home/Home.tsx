@@ -15,6 +15,7 @@ import MuiSvg from "../../assets/logos/mui.svg?react";
 import StorybookSvg from "../../assets/logos/storybook.svg?react";
 import { Icon } from "../../components/Icon/Icon";
 import { Reveal } from "../../components/Reveal/Reveal";
+import { cardH2 } from "../../shared/styles";
 
 const homeComponents = [
   <IntroHeader />,
@@ -27,7 +28,7 @@ const homeComponents = [
       </span>
     </Button>
   </div>,
-  <h2 className="mt-15 font-semibold">New Drops</h2>,
+  <h2 className="mt-12 mb-6 font-semibold">New Drops</h2>,
   <div className="flex flex-wrap gap-10">
     {projects.map((p) => (
       <ProjectThumbNail
@@ -42,9 +43,9 @@ const homeComponents = [
     <br />
     <br />
   </>,
-  <Card>
+  <Card willDefaultToFlexColsForMobile>
     <div>
-      <p className="text-md font-semibold text-white mb-1">About Giuseppe</p>
+      <h2 className={cardH2}>About Giuseppe</h2>
       <p className="text-sm text-zinc-400 text-justify">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus
         turpis ac nisi mollis, quis aliquet ante ullamcorper. Maecenas laoreet
@@ -61,7 +62,7 @@ const homeComponents = [
       </p>
     </div>
 
-    <div className="rounded-full border border-[#2c2c2c] px-4 py-2 text-sm font-medium">
+    <div className="rounded-full self-end border border-[#2c2c2c] px-4 py-2 text-sm font-medium">
       <Search size={15} color="var(--text-gray)" />
     </div>
   </Card>,
@@ -71,13 +72,13 @@ const homeComponents = [
   </>,
   <Card type="columns">
     <div>
-      <p className="text-md font-semibold text-white mb-1">Stack</p>
+      <p className={cardH2}>Stack</p>
       <p className="text-sm text-zinc-400">
         Software and resources I use on a regular basis.
       </p>
     </div>
 
-    <div className="grid grid-cols-2 gap-6 my-6">
+    <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
       <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />
       <Icon Icon={TsSvg} title="React" desc="Javascript Framework" />
       <Icon Icon={ReduxSvg} title="React" desc="Javascript Framework" />
