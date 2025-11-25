@@ -17,5 +17,15 @@ export const projects: Project[] = [
     title: "Chat App",
     desc: "A full-stack, real-time chat platform",
     thumbnailImg: chatApp
+  },
+  {
+    title: "React Lab Mono",
+    desc: "A design system",
+    thumbnailImg: chatApp
+  },
+  {
+    title: "Auth-Guarded Hub",
+    desc: "A full-stack, real-time chat platform",
+    thumbnailImg: chatApp
   }
 ];

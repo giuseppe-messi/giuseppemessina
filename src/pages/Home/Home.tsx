@@ -52,7 +52,7 @@ const Home: React.FC = () => {
       </div>,
       <h2 className="mt-12 mb-6 font-semibold">New Drops</h2>,
       <div className="flex flex-wrap gap-10">
-        {projects.map((p) => (
+        {projects.slice(0, 2).map((p) => (
           <ProjectThumbNail
             key={p.title}
             title={p.title}

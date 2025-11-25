@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 import { Reveal } from "../../components/Reveal/Reveal";
+import { projects } from "../../shared/projects";
+import { ProjectThumbNail } from "../../components/ProjectThumbNail/ProjectThumbNail";
 
 const Projects = () => {
   const components = useMemo(
@@ -7,10 +9,30 @@ const Projects = () => {
       <div className="font-semibold leading-tight tracking-tight">
         <h1 className="text-5xl">Projects</h1>
 
-        <div className="text-2xl mt-4 flex gap-3 flex-wrap">
+        <div className="text-xl mt-4 flex gap-3 flex-wrap text-[var(--text-gray)]">
           <p>bla bla bla bla bla </p>
         </div>
-      </div>
+      </div>,
+      <>
+        <br />
+        <br />
+      </>,
+      <div className="grid md:grid-cols-2 gap-8">
+        {projects.map((p) => (
+          <ProjectThumbNail
+            key={p.title}
+            title={p.title}
+            desc={p.desc}
+            thumbnailImg={p.thumbnailImg}
+          />
+        ))}
+      </div>,
+      <>
+        <br />
+        <br />
+        <br />
+        <br />
+      </>
     ],
     []
   );
