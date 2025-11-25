@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { Layout } from "./Layout";
 import { LoadingSpinner } from "@react-lab-mono/ui";
+import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Projects = lazy(() => import("./pages/Projects/Projects"));
@@ -14,6 +15,7 @@ const Contact = lazy(() => import("./pages/Contact/Contact"));
 const App: React.FC = () => (
   <ErrorBoundary>
     <Router>
+      <ScrollToTop />
       <Suspense fallback={<LoadingSpinner size="lg" />}>
         <Routes>
           <Route element={<Layout />}>

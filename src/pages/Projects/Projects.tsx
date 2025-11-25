@@ -18,7 +18,17 @@ const Projects = () => {
         <br />
       </>,
       <div className="grid md:grid-cols-2 gap-8">
-        {projects.map((p) => (
+        {projects.slice(0, 2).map((p) => (
+          <ProjectThumbNail
+            key={p.title}
+            title={p.title}
+            desc={p.desc}
+            thumbnailImg={p.thumbnailImg}
+          />
+        ))}
+      </div>,
+      <div className="grid md:grid-cols-2 gap-8">
+        {projects.slice(2).map((p) => (
           <ProjectThumbNail
             key={p.title}
             title={p.title}
@@ -40,7 +50,7 @@ const Projects = () => {
   return (
     <>
       {components.map((component, index) => (
-        <Reveal key={index} delay={0.4 + index / 10} fullwidth>
+        <Reveal key={index} delay={index / 10} fullwidth>
           {component}
         </Reveal>
       ))}

@@ -155,7 +155,7 @@ const Contact = () => {
   return (
     <>
       {components.map((component, index) => (
-        <Reveal key={index} delay={0.4 + index / 10} fullwidth>
+        <Reveal key={index} delay={index / 10} fullwidth>
           {component}
         </Reveal>
       ))}
