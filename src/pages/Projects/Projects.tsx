@@ -27,6 +27,10 @@ const Projects = () => {
           />
         ))}
       </div>,
+      <>
+        <br />
+        <br />
+      </>,
       <div className="grid md:grid-cols-2 gap-8">
         {projects.slice(2).map((p) => (
           <ProjectThumbNail

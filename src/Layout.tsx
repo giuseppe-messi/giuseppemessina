@@ -6,12 +6,12 @@ import { Footer } from "./components/Footer/Footer";
 export const Layout = () => (
   <div className="flex">
     <NavContainer />
-    <main className="flex flex-col flex-1">
-      <div className="min-h-screen px-5 md:px-25 flex flex-col max-w-270 flex-1 items-start pt-10 md:mt-14">
+    <main className="flex flex-col flex-1 items-center">
+      <div className="min-h-screen px-5 md:px-15 flex flex-col max-w-270 flex-1 items-start pt-10 md:mt-14">
         <Outlet />
       </div>
-      <div className="bg-[var(--main-gray)] w-full">
-        <div className="max-w-270 px-5 md:px-15 pt-10 mx-auto">
+      <div className="bg-[var(--main-gray)] w-full flex flex-col items-center">
+        <div className="max-w-270 px-5 md:px-15 pt-10 w-full">
           <Footer />
         </div>
       </div>

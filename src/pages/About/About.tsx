@@ -8,7 +8,7 @@ const About = () => {
       <div className="font-semibold leading-tight tracking-tight text-justify">
         <h1 className="text-5xl">About me...</h1>
 
-        <div className="w-full max-w-[560px] text-lg mt-4 flex gap-3 flex-wrap text-[var(--text-gray)]">
+        <div className="w-full  text-lg mt-4 flex gap-3 flex-wrap text-[var(--text-gray)]">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
             eleifend leo eu fermentum. Aliquam sed sollicitudin sem. Vestibulum
@@ -21,17 +21,18 @@ const About = () => {
       </div>,
       <>
         <br />
+        <br />
       </>,
       <div className="flex flex-col items-center">
-        <div className="w-full max-w-[560px]">
+        <div className="w-full">
           <img
             src={giuseppesAvatar}
             alt="Giuseppe Messina"
-            className="w-full h-auto max-h-[400px] rounded-lg object-cover object-[center_30%]"
+            className="w-full h-auto mx-auto max-w-[560px] max-h-[400px] rounded-lg object-cover object-[center_30%]"
           />
         </div>
         <br />
-        <div className="w-full max-w-[560px] text-md mt-4 flex gap-3 flex-wrap text-[var(--text-gray)] text-justify">
+        <div className="w-full  text-md mt-4 flex gap-3 flex-wrap text-[var(--text-gray)] text-justify">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
             eleifend leo eu fermentum. Aliquam sed sollicitudin sem. Vestibulum
@@ -77,13 +78,13 @@ const About = () => {
   );
 
   return (
-    <div className="self-center">
+    <>
       {components.map((component, index) => (
         <Reveal key={index} delay={index / 10} fullwidth>
           {component}
         </Reveal>
       ))}
-    </div>
+    </>
   );
 };
 
