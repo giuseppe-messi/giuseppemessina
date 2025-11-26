@@ -11,11 +11,21 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 cursor-pointer";
+  "inline-flex items-center justify-center rounded-md font-semibold transition-colors duration-300 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  solid: `bg-[var(--cta-full-bg)] text-white hover:bg-[var(--cta-full-bg-hover)] disabled:bg-gray-400 ${borderMedium}`,
-  outline: `${borderMedium} text-[var(--cta-text)] bg-transparent`
+  solid: `
+    bg-indigo-600
+    text-white
+    hover:bg-indigo-500
+    focus-visible:outline-indigo-600
+    disabled:bg-indigo-300
+  `,
+  outline: `
+    ${borderMedium}
+    text-[var(--cta-text)]
+    bg-transparent
+  `
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

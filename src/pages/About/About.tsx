@@ -1,24 +1,20 @@
 import { useMemo } from "react";
 import { Reveal } from "../../components/Reveal/Reveal";
 import giuseppesAvatar from "../../assets/giuseppe.jpeg";
+import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 
 const About = () => {
   const components = useMemo(
     () => [
-      <div className="font-semibold leading-tight tracking-tight text-justify">
-        <h1 className="text-5xl">About me...</h1>
-
-        <div className="w-full  text-lg mt-4 flex gap-3 flex-wrap text-[var(--text-gray)]">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
+      <SectionHeader
+        title="About me"
+        subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
             eleifend leo eu fermentum. Aliquam sed sollicitudin sem. Vestibulum
             suscipit odio vel ultrices finibus. Nullam ut vehicula diam. Sed non
             nunc dictum, efficitur nisl sit amet, ultrices lorem. Sed at nibh
             efficitur, lacinia sapien ac, eleifend mauris. In quis mi et erat
-            efficitur convallis sed ut mi.
-          </p>
-        </div>
-      </div>,
+            efficitur convallis sed ut mi."
+      />,
       <>
         <br />
         <br />
@@ -32,7 +28,8 @@ const About = () => {
           />
         </div>
         <br />
-        <div className="w-full  text-md mt-4 flex gap-3 flex-wrap text-[var(--text-gray)] text-justify">
+        <br />
+        <div className="w-full max-w-[700px] mx-auto text-md mt-4 flex gap-3 flex-wrap text-[var(--text-gray)] text-justify">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
             eleifend leo eu fermentum. Aliquam sed sollicitudin sem. Vestibulum

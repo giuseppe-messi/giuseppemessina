@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { borderMedium } from "../../shared/styles";
-import type { NavItem } from "../../stores/useNav";
 import { useNavigate } from "react-router-dom";
+import type { NavItem } from "../../interfaces/nav";
 
 type MobileNavItemProps = {
   item: NavItem;

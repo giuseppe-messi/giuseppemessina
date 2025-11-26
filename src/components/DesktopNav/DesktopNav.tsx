@@ -7,7 +7,7 @@ import { hoverBlockBorderDivAndText } from "../../shared/styles";
 import { motion } from "motion/react";
 import { Tooltip } from "react-tooltip";
 import { useState } from "react";
-import type { NavItem } from "../../stores/useNav";
+import type { NavItem } from "../../interfaces/nav";
 
 const NAV_OPEN = 280;
 const NAV_COLLAPSED = 90;

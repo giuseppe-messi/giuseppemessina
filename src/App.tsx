@@ -8,6 +8,7 @@ import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Projects = lazy(() => import("./pages/Projects/Projects"));
+const ProjectView = lazy(() => import("./pages/ProjectView/ProjectView"));
 const About = lazy(() => import("./pages/About/About"));
 const Stack = lazy(() => import("./pages/Stack/Stack"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
@@ -21,6 +22,7 @@ const App: React.FC = () => (
           <Route element={<Layout />}>
             <Route element={<Home />} index path="/" />
             <Route element={<Projects />} index path="/projects" />
+            <Route element={<ProjectView />} index path="/projects/:id" />
             <Route element={<About />} index path="/about" />
             <Route element={<Stack />} index path="/stack" />
             <Route element={<Contact />} index path="/contact" />

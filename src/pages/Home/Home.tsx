@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { IntroHeader } from "../../components/IntroHeader/IntroHeader";
+import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 import { Button } from "../../components/Button/Button";
 import { Copy, Search } from "lucide-react";
 import { ProjectThumbNail } from "../../components/ProjectThumbNail/ProjectThumbNail";
@@ -17,9 +17,12 @@ import { Icon } from "../../components/Icon/Icon";
 import { Reveal } from "../../components/Reveal/Reveal";
 import { cardH2 } from "../../shared/styles";
 import { useNavigate } from "react-router-dom";
+import { useNav } from "../../stores/useNav";
+import { NavItemIds } from "../../interfaces/nav";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const setActiveId = useNav().setActiveId;
   const [emailCopied, setEmailCopied] = useState(false);
 
   useEffect(() => {
@@ -33,9 +36,24 @@ const Home: React.FC = () => {
 
   const components = useMemo(
     () => [
-      <IntroHeader />,
+      <SectionHeader
+        title="Hey, I'm Giuseppe"
+        subTitle={
+          <>
+            <span>Full Stack Typescript Developer</span>
+            <span className="text-[var(--text-white)]">Frontend-leaning</span>
+          </>
+        }
+      />,
       <div className="flex gap-3 mt-8 [&>button]:w-25">
-        <Button onClick={() => navigate("/about")}>About</Button>
+        <Button
+          onClick={() => {
+            navigate("/about");
+            setActiveId(NavItemIds.About);
+          }}
+        >
+          About
+        </Button>
         <Button
           onClick={() => {
             if (emailCopied) return;
@@ -58,6 +76,7 @@ const Home: React.FC = () => {
             title={p.title}
             desc={p.desc}
             thumbnailImg={p.thumbnailImg}
+            id={p.id}
           />
         ))}
       </div>,
@@ -119,7 +138,7 @@ const Home: React.FC = () => {
         <br />
       </>
     ],
-    [emailCopied, navigate]
+    [emailCopied, navigate, setActiveId]
   );
 
   return (

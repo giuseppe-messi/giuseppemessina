@@ -6,17 +6,15 @@ import { Icon } from "../../components/Icon/Icon";
 import ReactSvg from "../../assets/logos/react.svg?react";
 import TsSvg from "../../assets/logos/ts.svg?react";
 import ReduxSvg from "../../assets/logos/redux.svg?react";
+import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 
 const Stack = () => {
   const components = useMemo(
     () => [
-      <div className="font-semibold leading-tight tracking-tight">
-        <h1 className="text-5xl">Stack</h1>
-
-        <div className="text-xl mt-4 flex gap-3 flex-wrap text-[var(--text-gray)]">
-          <p>Tools, resources and software I use daily.</p>
-        </div>
-      </div>,
+      <SectionHeader
+        title="Stack"
+        subTitle="Tools, resources and software I use daily."
+      />,
       <>
         <br />
         <br />

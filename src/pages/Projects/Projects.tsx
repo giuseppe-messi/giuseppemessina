@@ -2,17 +2,17 @@ import { useMemo } from "react";
 import { Reveal } from "../../components/Reveal/Reveal";
 import { projects } from "../../shared/projects";
 import { ProjectThumbNail } from "../../components/ProjectThumbNail/ProjectThumbNail";
+import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 
 const Projects = () => {
   const components = useMemo(
     () => [
-      <div className="font-semibold leading-tight tracking-tight">
-        <h1 className="text-5xl">Projects</h1>
-
-        <div className="text-xl mt-4 flex gap-3 flex-wrap text-[var(--text-gray)]">
-          <p>bla bla bla bla bla </p>
-        </div>
-      </div>,
+      <SectionHeader
+        title="Projects"
+        subTitle="Some of the projects I’m most proud of are the ones that best
+            reflect my approach to building real-world, production-ready
+            applications."
+      />,
       <>
         <br />
         <br />
@@ -24,6 +24,7 @@ const Projects = () => {
             title={p.title}
             desc={p.desc}
             thumbnailImg={p.thumbnailImg}
+            id={p.id}
           />
         ))}
       </div>,
@@ -38,6 +39,7 @@ const Projects = () => {
             title={p.title}
             desc={p.desc}
             thumbnailImg={p.thumbnailImg}
+            id={p.id}
           />
         ))}
       </div>,

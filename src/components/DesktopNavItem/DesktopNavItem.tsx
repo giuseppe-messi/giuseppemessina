@@ -2,8 +2,8 @@ import clsx from "clsx";
 import { borderLight, borderMedium, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
-import type { NavItem } from "../../stores/useNav";
 import { useNavigate } from "react-router-dom";
+import type { NavItem } from "../../interfaces/nav";
 
 type DesktopNavItemProps = {
   isOpen: boolean;
