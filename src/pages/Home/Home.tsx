@@ -18,7 +18,7 @@ import { Reveal } from "../../components/Reveal/Reveal";
 import { cardH2 } from "../../shared/styles";
 import { useNavigate } from "react-router-dom";
 import { useNav } from "../../stores/useNav";
-import { NavItemIds } from "../../interfaces/nav";
+import { NAV_IDS } from "../../interfaces/nav";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
         <Button
           onClick={() => {
             navigate("/about");
-            setActiveId(NavItemIds.About);
+            setActiveId(NAV_IDS.about);
           }}
         >
           About
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
           </span>
         </Button>
       </div>,
-      <h2 className="mt-12 mb-6 font-semibold">New Drops</h2>,
+      <h2 className="text-lg mt-12 mb-6 font-semibold">New Drops</h2>,
       <div className="flex flex-wrap gap-10">
         {projects.slice(0, 2).map((p) => (
           <ProjectThumbNail
@@ -84,7 +84,13 @@ const Home: React.FC = () => {
         <br />
         <br />
       </>,
-      <Card willDefaultToFlexColsForMobile>
+      <Card
+        willDefaultToFlexColsForMobile
+        onClick={() => {
+          navigate("/about");
+          setActiveId(NAV_IDS.about);
+        }}
+      >
         <div>
           <h2 className={cardH2}>About me</h2>
           <p className="text-sm text-zinc-400 text-justify">

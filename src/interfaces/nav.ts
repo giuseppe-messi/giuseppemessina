@@ -11,14 +11,14 @@ export type NavItem = {
   id: NavItemId;
 };
 
-export const NavItemIds = {
-  Home: 1,
-  Projects: 2,
-  About: 3,
-  Stack: 4,
-  Contact: 5,
-  LinkedIn: 6,
-  GitHub: 7
+export const NAV_IDS = {
+  home: 1,
+  projects: 2,
+  about: 3,
+  stack: 4,
+  contact: 5,
+  linkedIn: 6,
+  gitHub: 7
 } as const;
 
-export type NavItemId = (typeof NavItemIds)[keyof typeof NavItemIds];
+export type NavItemId = (typeof NAV_IDS)[keyof typeof NAV_IDS];

@@ -1,17 +1,22 @@
 import NotFound from "./pages/NotFound/NotFound";
-import React, { lazy, Suspense } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { Layout } from "./Layout";
 import { LoadingSpinner } from "@react-lab-mono/ui";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
+import { ROUTES } from "./routes";
 
-const Home = lazy(() => import("./pages/Home/Home"));
-const Projects = lazy(() => import("./pages/Projects/Projects"));
-const ProjectView = lazy(() => import("./pages/ProjectView/ProjectView"));
-const About = lazy(() => import("./pages/About/About"));
-const Stack = lazy(() => import("./pages/Stack/Stack"));
-const Contact = lazy(() => import("./pages/Contact/Contact"));
+const routesConfig = Object.values(ROUTES).map((route) => (
+  <Route
+    key={route.path}
+    path={route.path}
+    element={route.element}
+    index={route.index}
+  />
+));
+
+const layoutElement = <Layout />;
 
 const App: React.FC = () => (
   <ErrorBoundary>
@@ -19,13 +24,8 @@ const App: React.FC = () => (
       <ScrollToTop />
       <Suspense fallback={<LoadingSpinner size="lg" />}>
         <Routes>
-          <Route element={<Layout />}>
-            <Route element={<Home />} index path="/" />
-            <Route element={<Projects />} index path="/projects" />
-            <Route element={<ProjectView />} index path="/projects/:id" />
-            <Route element={<About />} index path="/about" />
-            <Route element={<Stack />} index path="/stack" />
-            <Route element={<Contact />} index path="/contact" />
+          <Route element={layoutElement}>
+            {routesConfig}
             <Route element={<NotFound />} path="*" />
           </Route>
         </Routes>

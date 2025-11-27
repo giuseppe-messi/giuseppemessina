@@ -8,7 +8,7 @@ import { ErrorPage } from "../ErrorPage/ErrorPage";
 import projectJson from "../../copy/projects.json";
 import { Card } from "../../components/Card/Card";
 import { Button } from "../../components/Button/Button";
-import { NavItemIds } from "../../interfaces/nav";
+import { NAV_IDS } from "../../interfaces/nav";
 import { useNav } from "../../stores/useNav";
 
 const ProjectView = () => {
@@ -109,7 +109,7 @@ const ProjectView = () => {
           <Card
             type="columns"
             onClick={() => {
-              setActiveId(NavItemIds.Projects);
+              // setActiveId(NAV_IDS.projects);
               navigate("/projects");
             }}
           >

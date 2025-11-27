@@ -6,7 +6,7 @@ import { desktopNavTransition } from "../../shared/emotionProps";
 import { hoverBlockBorderDivAndText } from "../../shared/styles";
 import { motion } from "motion/react";
 import { Tooltip } from "react-tooltip";
-import { useState } from "react";
+import { memo, useState } from "react";
 import type { NavItem } from "../../interfaces/nav";
 
 const NAV_OPEN = 280;
@@ -15,10 +15,10 @@ const NAV_COLLAPSED = 90;
 type DesktopNavProps = {
   items: NavItem[];
   activeId: number;
-  setActiveId: (id: number) => void;
+  // setActiveId: (id: number) => void;
 };
 
-export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
+export const DesktopNav = memo(({ items, activeId }: DesktopNavProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -55,20 +55,20 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
         items={items.filter((i) => i.section === "main")}
         isOpen={isOpen}
         activeId={activeId}
-        setActiveId={setActiveId}
+        // setActiveId={setActiveId}
       />
       <DesktopNavGroup
         items={items.filter((i) => i.section === "resources")}
         isOpen={isOpen}
         activeId={activeId}
-        setActiveId={setActiveId}
+        // setActiveId={setActiveId}
         label="RESOURCES"
       />
       <DesktopNavGroup
         items={items.filter((i) => i.section === "contacts")}
         isOpen={isOpen}
         activeId={activeId}
-        setActiveId={setActiveId}
+        // setActiveId={setActiveId}
         label="CONNECT"
       />
 
@@ -110,4 +110,4 @@ export function DesktopNav({ items, activeId, setActiveId }: DesktopNavProps) {
       />
     </motion.nav>
   );
-}
+});

@@ -1,7 +1,7 @@
 import { MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { NavItemIds } from "../../interfaces/nav";
+import { NAV_IDS } from "../../interfaces/nav";
 import { useNavigate } from "react-router-dom";
 import { useNav } from "../../stores/useNav";
 
@@ -151,7 +151,7 @@ export const Footer = () => {
           <div
             onClick={() => {
               navigate("/contact");
-              setActiveId(NavItemIds.Contact);
+              setActiveId(NAV_IDS.contact);
             }}
             className="flex items-center gap-2 text-[var(--text-gray)] cursor-pointer"
           >

@@ -8,7 +8,7 @@ import {
   Send,
   UserSearch
 } from "lucide-react";
-import { NavItemIds, type NavItem } from "../interfaces/nav";
+import { NAV_IDS, type NavItem } from "../interfaces/nav";
 
 export const navItems: NavItem[] = [
   {
@@ -17,7 +17,7 @@ export const navItems: NavItem[] = [
     url: "/",
     isExternal: false,
     section: "main",
-    id: NavItemIds.Home
+    id: NAV_IDS.home
   },
   {
     label: "Projects",
@@ -25,7 +25,7 @@ export const navItems: NavItem[] = [
     url: "/projects",
     isExternal: false,
     section: "main",
-    id: NavItemIds.Projects
+    id: NAV_IDS.projects
   },
   {
     label: "About",
@@ -33,7 +33,7 @@ export const navItems: NavItem[] = [
     url: "/about",
     isExternal: false,
     section: "main",
-    id: NavItemIds.About
+    id: NAV_IDS.about
   },
   {
     label: "Stack",
@@ -41,7 +41,7 @@ export const navItems: NavItem[] = [
     url: "/stack",
     isExternal: false,
     section: "resources",
-    id: NavItemIds.Stack
+    id: NAV_IDS.stack
   },
 
   {
@@ -50,7 +50,7 @@ export const navItems: NavItem[] = [
     url: "/contact",
     isExternal: false,
     section: "contacts",
-    id: NavItemIds.Contact
+    id: NAV_IDS.contact
   },
   {
     label: "LinkedIn",
@@ -58,7 +58,7 @@ export const navItems: NavItem[] = [
     url: "https://www.linkedin.com/in/giuseppe-messina/",
     isExternal: true,
     section: "contacts",
-    id: NavItemIds.LinkedIn
+    id: NAV_IDS.linkedIn
   },
   {
     label: "GitHub",
@@ -66,7 +66,7 @@ export const navItems: NavItem[] = [
     url: "https://github.com/giuseppe-messi",
     isExternal: true,
     section: "contacts",
-    id: NavItemIds.GitHub
+    id: NAV_IDS.gitHub
   }
 ];
 
@@ -77,13 +77,16 @@ type useNavState = {
 
 const getInitialSelectedFromUrl = () => {
   const currentPageOnLoad = window.location.pathname.split("/")[1];
-  if (currentPageOnLoad === "") return NavItemIds.Home;
+
+  console.log("🚀 ~ currentPageOnLoad:", currentPageOnLoad);
+
+  if (currentPageOnLoad === "") return NAV_IDS.home;
 
   const navItem = navItems.find(
     (item) => item.label.toLowerCase() === currentPageOnLoad
   );
 
-  if (!navItem) return NavItemIds.Home; // safe default
+  if (!navItem) return NAV_IDS.home; // safe default
   return navItem.id;
 };
 
