@@ -8,13 +8,10 @@ import { ErrorPage } from "../ErrorPage/ErrorPage";
 import projectJson from "../../copy/projects.json";
 import { Card } from "../../components/Card/Card";
 import { Button } from "../../components/Button/Button";
-import { NAV_IDS } from "../../interfaces/nav";
-import { useNav } from "../../stores/useNav";
 
 const ProjectView = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const setActiveId = useNav().setActiveId;
   const project = projects.find((p) => p.id === Number(id)) ?? null;
   const currentCopy = projectJson.projects.find((p) => p.id === id);
 
@@ -106,13 +103,7 @@ const ProjectView = () => {
       </>,
       <div className="max-w-[700px] mx-auto">
         <div className="flex flex-col items-start max-w-80">
-          <Card
-            type="columns"
-            onClick={() => {
-              // setActiveId(NAV_IDS.projects);
-              navigate("/projects");
-            }}
-          >
+          <Card type="columns" onClick={() => navigate("/projects")}>
             <div className="bg-[var(--medium-gray)] text-[var(--light-white)] border-1 border-[var(--light-gray)] rounded-full flex items-center justify-center w-10 h-10">
               <Pencil size={20} />
             </div>
@@ -134,7 +125,7 @@ const ProjectView = () => {
         <br />
       </>
     ],
-    [currentCopy, project]
+    [currentCopy, project, navigate]
   );
 
   if (!project) {

@@ -3,19 +3,17 @@ import { borderLight, borderMedium, hoverText } from "../../shared/styles";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import type { NavItem } from "../../interfaces/nav";
+import type { NavItem } from "../../config/navItems";
 
 type DesktopNavItemProps = {
   isOpen: boolean;
   item: NavItem;
   activeId: number;
-  // setActiveId: (id: number) => void;
 };
 
 export const DesktopNavItem = ({
   isOpen,
   activeId,
-  // setActiveId,
   item
 }: DesktopNavItemProps) => {
   const navigate = useNavigate();
@@ -30,7 +28,6 @@ export const DesktopNavItem = ({
         if (item.isExternal)
           window.open(item.url, "_blank", "noopener,noreferrer");
         else {
-          // setActiveId(item.id);
           navigate(item.url);
         }
       }}

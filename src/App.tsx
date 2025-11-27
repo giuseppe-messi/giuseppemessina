@@ -5,9 +5,9 @@ import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { Layout } from "./Layout";
 import { LoadingSpinner } from "@react-lab-mono/ui";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
-import { ROUTES } from "./routes";
+import { ROUTES } from "./config/routes";
 
-const routesConfig = Object.values(ROUTES).map((route) => (
+const routes = Object.values(ROUTES).map((route) => (
   <Route
     key={route.path}
     path={route.path}
@@ -16,16 +16,14 @@ const routesConfig = Object.values(ROUTES).map((route) => (
   />
 ));
 
-const layoutElement = <Layout />;
-
 const App: React.FC = () => (
   <ErrorBoundary>
     <Router>
       <ScrollToTop />
       <Suspense fallback={<LoadingSpinner size="lg" />}>
         <Routes>
-          <Route element={layoutElement}>
-            {routesConfig}
+          <Route element={<Layout />}>
+            {routes}
             <Route element={<NotFound />} path="*" />
           </Route>
         </Routes>

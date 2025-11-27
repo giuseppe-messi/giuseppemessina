@@ -144,7 +144,7 @@ const Contact = () => {
         <br />
       </>
     ],
-    [emailCopied]
+    [emailCopied, onSubmit]
   );
 
   return (

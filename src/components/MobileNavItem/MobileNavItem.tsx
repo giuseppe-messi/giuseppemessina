@@ -1,19 +1,14 @@
 import clsx from "clsx";
 import { borderMedium } from "../../shared/styles";
 import { useNavigate } from "react-router-dom";
-import type { NavItem } from "../../interfaces/nav";
+import type { NavItem } from "../../config/navItems";
 
 type MobileNavItemProps = {
   item: NavItem;
   activeId: number;
-  setActiveId: (id: number) => void;
 };
 
-export const MobileNavItem = ({
-  item,
-  activeId,
-  setActiveId
-}: MobileNavItemProps) => {
+export const MobileNavItem = ({ item, activeId }: MobileNavItemProps) => {
   const navigate = useNavigate();
   const isActive = activeId === item.id;
 
@@ -24,7 +19,6 @@ export const MobileNavItem = ({
         if (item.isExternal)
           window.open(item.url, "_blank", "noopener,noreferrer");
         else {
-          setActiveId(item.id);
           navigate(item.url);
         }
       }}

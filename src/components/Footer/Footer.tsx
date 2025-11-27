@@ -1,9 +1,7 @@
 import { MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { NAV_IDS } from "../../interfaces/nav";
 import { useNavigate } from "react-router-dom";
-import { useNav } from "../../stores/useNav";
 
 const headers = ["Index", "Projects", "Resources", "Connect"];
 
@@ -87,7 +85,6 @@ const getStatus = (hour: number) => {
 
 export const Footer = () => {
   const navigate = useNavigate();
-  const setActiveId = useNav().setActiveId;
   const [londonTime, setLondonTime] = useState<{
     hour: number;
     minutes: number;
@@ -149,10 +146,7 @@ export const Footer = () => {
         <div className="flex-1 text-sm">
           <p className="flex gap-1 mb-2">Currently {status}</p>
           <div
-            onClick={() => {
-              navigate("/contact");
-              setActiveId(NAV_IDS.contact);
-            }}
+            onClick={() => navigate("/contact")}
             className="flex items-center gap-2 text-[var(--text-gray)] cursor-pointer"
           >
             <p>Reach out</p>

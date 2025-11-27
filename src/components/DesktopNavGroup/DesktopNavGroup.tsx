@@ -1,31 +1,27 @@
 import { DesktopNavItem } from "../DesktopNavItem/DesktopNavItem";
 import { desktopNavTransition } from "../../shared/emotionProps";
 import { motion } from "motion/react";
-import type { NavItem } from "../../routes";
+import type { NavItem } from "../../config/navItems";
 
 type DesktopNavItemProps = {
   label?: string;
   isOpen: boolean;
   items: NavItem[];
   activeId: number;
-  // setActiveId: (id: number) => void;
 };
 
 export const DesktopNavGroup = ({
   label,
   isOpen,
   activeId,
-  // setActiveId,
   items
 }: DesktopNavItemProps) => (
   <motion.div
-    layout
     animate={isOpen ? { marginTop: 15 } : { marginTop: 0 }}
     className="w-full"
   >
     {label && isOpen && (
       <motion.div
-        layout
         transition={desktopNavTransition}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -42,7 +38,6 @@ export const DesktopNavGroup = ({
           item={item}
           isOpen={isOpen}
           activeId={activeId}
-          // setActiveId={setActiveId}
         />
       ))}
     </div>

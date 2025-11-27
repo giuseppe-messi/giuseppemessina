@@ -1,4 +1,3 @@
-import { create } from "zustand";
 import {
   Github,
   House,
@@ -8,7 +7,21 @@ import {
   Send,
   UserSearch
 } from "lucide-react";
-import { NAV_IDS, type NavItem } from "../interfaces/nav";
+import type { JSX } from "react";
+import { ROUTE_IDS, ROUTES } from "./routes";
+
+type Section = "main" | "resources" | "contacts";
+
+export type NavItemId = (typeof ROUTE_IDS)[keyof typeof ROUTE_IDS];
+
+export type NavItem = {
+  label: string;
+  icon: JSX.Element;
+  url: string;
+  isExternal: boolean;
+  section: Section;
+  id: NavItemId;
+};
 
 export const navItems: NavItem[] = [
   {
@@ -17,7 +30,7 @@ export const navItems: NavItem[] = [
     url: "/",
     isExternal: false,
     section: "main",
-    id: NAV_IDS.home
+    id: ROUTE_IDS.home
   },
   {
     label: "Projects",
@@ -25,7 +38,7 @@ export const navItems: NavItem[] = [
     url: "/projects",
     isExternal: false,
     section: "main",
-    id: NAV_IDS.projects
+    id: ROUTE_IDS.projects
   },
   {
     label: "About",
@@ -33,7 +46,7 @@ export const navItems: NavItem[] = [
     url: "/about",
     isExternal: false,
     section: "main",
-    id: NAV_IDS.about
+    id: ROUTE_IDS.about
   },
   {
     label: "Stack",
@@ -41,7 +54,7 @@ export const navItems: NavItem[] = [
     url: "/stack",
     isExternal: false,
     section: "resources",
-    id: NAV_IDS.stack
+    id: ROUTE_IDS.stack
   },
 
   {
@@ -50,7 +63,7 @@ export const navItems: NavItem[] = [
     url: "/contact",
     isExternal: false,
     section: "contacts",
-    id: NAV_IDS.contact
+    id: ROUTE_IDS.contact
   },
   {
     label: "LinkedIn",
@@ -58,7 +71,7 @@ export const navItems: NavItem[] = [
     url: "https://www.linkedin.com/in/giuseppe-messina/",
     isExternal: true,
     section: "contacts",
-    id: NAV_IDS.linkedIn
+    id: ROUTE_IDS.linkedIn
   },
   {
     label: "GitHub",
@@ -66,31 +79,10 @@ export const navItems: NavItem[] = [
     url: "https://github.com/giuseppe-messi",
     isExternal: true,
     section: "contacts",
-    id: NAV_IDS.gitHub
+    id: ROUTE_IDS.gitHub
   }
 ];
 
-type useNavState = {
-  activeId: number;
-  setActiveId: (id: number) => void;
-};
-
-const getInitialSelectedFromUrl = () => {
-  const currentPageOnLoad = window.location.pathname.split("/")[1];
-
-  console.log("🚀 ~ currentPageOnLoad:", currentPageOnLoad);
-
-  if (currentPageOnLoad === "") return NAV_IDS.home;
-
-  const navItem = navItems.find(
-    (item) => item.label.toLowerCase() === currentPageOnLoad
-  );
-
-  if (!navItem) return NAV_IDS.home; // safe default
-  return navItem.id;
-};
-
-export const useNav = create<useNavState>((set) => ({
-  activeId: getInitialSelectedFromUrl(),
-  setActiveId: (id: number) => set({ activeId: id })
-}));
+export const getActiveNavItemId = (pathname: string) =>
+  Object.values(ROUTES).find((r) => r.path === `/${pathname.split("/")[1]}`)
+    ?.id ?? 0;

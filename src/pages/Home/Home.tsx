@@ -17,12 +17,9 @@ import { Icon } from "../../components/Icon/Icon";
 import { Reveal } from "../../components/Reveal/Reveal";
 import { cardH2 } from "../../shared/styles";
 import { useNavigate } from "react-router-dom";
-import { useNav } from "../../stores/useNav";
-import { NAV_IDS } from "../../interfaces/nav";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const setActiveId = useNav().setActiveId;
   const [emailCopied, setEmailCopied] = useState(false);
 
   useEffect(() => {
@@ -46,14 +43,7 @@ const Home: React.FC = () => {
         }
       />,
       <div className="flex gap-3 mt-8 [&>button]:w-25">
-        <Button
-          onClick={() => {
-            navigate("/about");
-            setActiveId(NAV_IDS.about);
-          }}
-        >
-          About
-        </Button>
+        <Button onClick={() => navigate("/about")}>About</Button>
         <Button
           onClick={() => {
             if (emailCopied) return;
@@ -84,13 +74,7 @@ const Home: React.FC = () => {
         <br />
         <br />
       </>,
-      <Card
-        willDefaultToFlexColsForMobile
-        onClick={() => {
-          navigate("/about");
-          setActiveId(NAV_IDS.about);
-        }}
-      >
+      <Card willDefaultToFlexColsForMobile onClick={() => navigate("/about")}>
         <div>
           <h2 className={cardH2}>About me</h2>
           <p className="text-sm text-zinc-400 text-justify">
@@ -144,7 +128,7 @@ const Home: React.FC = () => {
         <br />
       </>
     ],
-    [emailCopied, navigate, setActiveId]
+    [emailCopied, navigate]
   );
 
   return (
