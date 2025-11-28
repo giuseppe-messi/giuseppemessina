@@ -12,8 +12,6 @@ export const useFormSubmit = () => {
       Array.from(formData.entries()) as [string, string][]
     ).toString();
 
-    enQueueToast("sucess", "Your message was sent successfully!");
-
     try {
       await fetch("/", {
         method: "POST",
