@@ -11,7 +11,7 @@ import ReduxSvg from "../../assets/logos/redux.svg?react";
 import JsSvg from "../../assets/logos/js.svg?react";
 import HtmlSvg from "../../assets/logos/html.svg?react";
 import CssSvg from "../../assets/logos/css.svg?react";
-import MuiSvg from "../../assets/logos/mui.svg?react";
+import TailwindSvg from "../../assets/logos/tailwind.svg?react";
 import StorybookSvg from "../../assets/logos/storybook.svg?react";
 import { Icon } from "../../components/Icon/Icon";
 import { Reveal } from "../../components/Reveal/Reveal";
@@ -109,15 +109,23 @@ const Home: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col h-[248px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
           <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={TsSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={ReduxSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={JsSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={HtmlSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={CssSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={MuiSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={StorybookSvg} title="React" desc="Javascript Framework" />
+          <Icon Icon={TsSvg} title="Typescript" desc="Typed JavaScript" />
+          <Icon Icon={ReduxSvg} title="Redux" desc="State management library" />
+          <Icon Icon={JsSvg} title="Javascript" desc="Programming language" />
+          <Icon Icon={HtmlSvg} title="HTML" desc="Markup language" />
+          <Icon Icon={CssSvg} title="CSS" desc="Style sheet language" />
+          <Icon
+            Icon={TailwindSvg}
+            title="Tailwind CSS"
+            desc="Utility-first CSS framework"
+          />
+          <Icon
+            Icon={StorybookSvg}
+            title="Storybook"
+            desc="Frontend workshop"
+          />
         </div>
 
         <Button className="w-full">View all</Button>

@@ -47,7 +47,7 @@ const Contact = () => {
       </>,
       <div className="max-w-[700px] text-justify mx-auto">
         <Card>
-          <div className="flex min-h-full w-full flex-col justify-center px-6 py-8 lg:px-8">
+          <div className="flex min-h-full w-full flex-col justify-center px-2 py-8 lg:px-8">
             <div className="mt-5 w-full [&_label]:text-[var(--text-gray)]">
               <form
                 className="space-y-6"
