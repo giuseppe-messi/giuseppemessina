@@ -21,7 +21,7 @@ const Stack = () => {
       </>,
       <Card type="columns">
         <div>
-          <p className={cardH2}>Design</p>
+          <h2 className={cardH2}>Development</h2>
         </div>
         <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
           <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />
@@ -40,21 +40,7 @@ const Stack = () => {
       </>,
       <Card type="columns">
         <div>
-          <p className={cardH2}>Productivity</p>
-        </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
-          <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={TsSvg} title="React" desc="Javascript Framework" />
-          <Icon Icon={ReduxSvg} title="React" desc="Javascript Framework" />
-        </div>
-      </Card>,
-      <>
-        <br />
-        <br />
-      </>,
-      <Card type="columns">
-        <div>
-          <p className={cardH2}>Development</p>
+          <h2 className={cardH2}>Productivity</h2>
         </div>
         <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
           <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />

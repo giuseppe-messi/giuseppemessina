@@ -1,32 +1,48 @@
 import { MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const headers = ["Index", "Projects", "Resources", "Connect"];
 
 const tableData = [
   {
-    index: "Home",
-    projects: "Optimistic UI Sandbox",
-    resources: "Stack",
-    connect: "Contact"
+    index: <Link to="/">Home</Link>,
+    projects: <Link to="/projects/1">Optimistic UI Sandbox</Link>,
+    resources: <Link to="/stack">Stack</Link>,
+    connect: <Link to="/contact">Contact</Link>
   },
   {
-    index: "Projects",
-    projects: "Chat App",
+    index: <Link to="/projects">Projects</Link>,
+    projects: <Link to="/projects/2">Chat App</Link>,
     resources: "",
-    connect: "LinkedIn"
+    connect: (
+      <a
+        href="https://www.linkedin.com/in/giuseppe-messina/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+    )
   },
   {
-    index: "About",
-    projects: "Chat App",
+    index: <Link to="/about">About</Link>,
+    projects: <Link to="/projects/3">React Lab Mono</Link>,
     resources: "",
-    connect: "GitHub"
+    connect: (
+      <a
+        href="https://github.com/giuseppe-messi/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+    )
   },
   {
     index: "",
-    projects: "Chat App",
+    projects: <Link to="/projects/4">Auth-Guarded Hub</Link>,
     resources: "",
     connect: ""
   }
@@ -134,10 +150,10 @@ export const Footer = () => {
             <div key={i} className="text-[var(--text-gray)]">
               <p className="font-semibold text-white mb-2">{headers[i]}</p>
 
-              <p>{row.index}</p>
-              <p>{row.projects}</p>
-              <p>{row.resources}</p>
-              <p>{row.connect}</p>
+              <>{row.index}</>
+              <>{row.projects}</>
+              <>{row.resources}</>
+              <>{row.connect}</>
             </div>
           ))}
         </div>
