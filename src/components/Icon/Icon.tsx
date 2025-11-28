@@ -10,7 +10,7 @@ type IconProps = {
 export const Icon = ({ Icon, title, desc, hasBorder = false }: IconProps) => (
   <div className="flex items-center gap-3">
     <Icon
-      className={`h-14 w-14 rounded-md ${
+      className={`h-10 w-10 rounded-md ${
         hasBorder ? "border-1 border-[var(--light-gray)] p-1" : ""
       }`}
     />

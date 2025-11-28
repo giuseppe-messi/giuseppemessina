@@ -16,7 +16,9 @@ export const Card = ({
   return (
     <div
       onClick={onClick}
-      className="group mx-auto w-full rounded-md cursor-pointer border border-[#2c2c2c]"
+      className={`group mx-auto w-full rounded-md border border-[#2c2c2c] ${
+        onClick ? "cursor-pointer" : ""
+      }`}
     >
       <div
         className={`flex gap-4 px-6 pb-6 pt-5 mb bg-[var(--main-gray)] border-t border-[#2c2c2c] ${
