@@ -147,7 +147,10 @@ export const Footer = () => {
         {/* mobile view */}
         <div className="sm:hidden grid grid-cols-2 gap-10 text-sm">
           {tableData.map((row, i) => (
-            <div key={i} className="text-[var(--text-gray)]">
+            <div
+              key={i}
+              className="text-[var(--text-gray)] flex flex-col gap-2"
+            >
               <p className="font-semibold text-white mb-2">{headers[i]}</p>
 
               <>{row.index}</>

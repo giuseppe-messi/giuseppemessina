@@ -46,7 +46,7 @@ const Stack = () => {
         <div>
           <h2 className={cardH2}>Core Frontend</h2>
         </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 my-6">
           <Icon Icon={ReactSvg} title="React" desc="Javascript Framework" />
           <Icon Icon={TsSvg} title="Typescript" desc="Typed JavaScript" />
           <Icon Icon={JsSvg} title="Javascript" desc="Programming language" />
@@ -62,7 +62,7 @@ const Stack = () => {
         <div>
           <h2 className={cardH2}>State & Data</h2>
         </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 my-6">
           <Icon Icon={ReduxSvg} title="Redux" desc="State management library" />
           <Icon
             Icon={ZustandSvg}
@@ -85,7 +85,7 @@ const Stack = () => {
         <div>
           <h2 className={cardH2}>Styling & UI</h2>
         </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 my-6">
           <Icon
             Icon={TailwindSvg}
             title="Tailwind CSS"
@@ -111,7 +111,7 @@ const Stack = () => {
         <div>
           <h2 className={cardH2}>Backend & Databases</h2>
         </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 my-6">
           <Icon
             Icon={NodeSvg}
             title="Node.js"
@@ -143,7 +143,7 @@ const Stack = () => {
         <div>
           <h2 className={cardH2}>Testing & Quality</h2>
         </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 my-6">
           <Icon
             Icon={JestSvg}
             title="Jest"
@@ -166,7 +166,7 @@ const Stack = () => {
         <div>
           <h2 className={cardH2}>Tooling</h2>
         </div>
-        <div className="flex flex-col h-[218px] overflow-hidden sm:h-full sm:overflow-auto sm:grid grid-cols-2 gap-6 my-6">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 my-6">
           <Icon Icon={GitSvg} title="Git" desc="Distributed version control" />
           <Icon Icon={GithubSvg} title="GitHub" desc="Git code hosting" />
           <Icon Icon={BitbucketSvg} title="BitBucket" desc="Git code hosting" />
