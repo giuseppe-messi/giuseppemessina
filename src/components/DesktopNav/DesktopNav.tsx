@@ -1,0 +1,109 @@
+import clsx from "clsx";
+import giuseppesAvatar from "../../assets/giuseppe.jpeg";
+import { ChevronRight } from "lucide-react";
+import { DesktopNavGroup } from "../DesktopNavGroup/DesktopNavGroup";
+import { desktopNavTransition } from "../../shared/emotionProps";
+import { hoverBlockBorderDivAndText } from "../../shared/styles";
+import { motion } from "motion/react";
+import { Tooltip } from "react-tooltip";
+import { useState } from "react";
+import type { NavItem } from "../../config/navItems";
+
+const NAV_OPEN = 280;
+const NAV_COLLAPSED = 90;
+
+type DesktopNavProps = {
+  items: NavItem[];
+  activeId: number;
+};
+
+export const DesktopNav = ({ items, activeId }: DesktopNavProps) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <motion.nav
+      animate={{ width: isOpen ? NAV_OPEN : NAV_COLLAPSED }}
+      transition={desktopNavTransition}
+      className="sticky top-0 left-0 h-[100vh] px-6 pt-7 bg-[var(--main-gray)] flex flex-col items-center border-r-1 border-[var(--medium-gray)]"
+    >
+      <motion.div
+        animate={isOpen ? { x: 5 } : { x: 4 }}
+        className="flex items-center w-full mb-4 gap-6"
+      >
+        <div className="flex-none w-10 h-10">
+          <motion.img
+            transition={desktopNavTransition}
+            animate={isOpen ? { scale: 1.2 } : { scale: 1 }}
+            src={giuseppesAvatar}
+            alt="Giuseppe Messina"
+            className="w-full h-full rounded-full object-cover"
+          />
+        </div>
+
+        <div className="overflow-hidden">
+          <div className="whitespace-nowrap leading-tight">
+            <p className="text-sm font-semibold">Giuseppe Messina</p>
+            <p className="text-sm text-[var(--text-gray)]">
+              Full Stack Developer
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      <DesktopNavGroup
+        items={items.filter((i) => i.section === "main")}
+        isOpen={isOpen}
+        activeId={activeId}
+      />
+      <DesktopNavGroup
+        items={items.filter((i) => i.section === "resources")}
+        isOpen={isOpen}
+        activeId={activeId}
+        label="RESOURCES"
+      />
+      <DesktopNavGroup
+        items={items.filter((i) => i.section === "contacts")}
+        isOpen={isOpen}
+        activeId={activeId}
+        label="CONNECT"
+      />
+
+      <div
+        className={clsx(
+          "absolute top-[37px] right-[-10px] w-5 h-5 rounded-full bg-[var(--main-gray)]",
+          hoverBlockBorderDivAndText
+        )}
+      >
+        <motion.div
+          onClick={() => setIsOpen((o) => !o)}
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={desktopNavTransition}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+        >
+          <ChevronRight
+            className={clsx(
+              "absolute left-1/2 top-1/2 -translate-x-[47%] -translate-y-1/2"
+            )}
+            size={17}
+          />
+        </motion.div>
+      </div>
+
+      <Tooltip
+        id="tooltip"
+        place="right"
+        noArrow
+        border="1px solid var(--medium-gray)"
+        style={{
+          background: "var(--main-gray)",
+          borderRadius: 12,
+          height: 30,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+        disableTooltip={() => isOpen}
+      />
+    </motion.nav>
+  );
+};

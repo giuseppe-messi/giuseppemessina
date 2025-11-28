@@ -1,73 +1,18 @@
-# React + TypeScript + Vite
+# Giuseppe Messina
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Full-Stack TypeScript Developer (Frontend-leaning)**  
+🔗 **Live site:** https://giuseppemessina.dev
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Me
 
-## React Compiler
+I’m **Giuseppe Messina**, a full-stack TypeScript developer with a strong **frontend focus** and over **eight years of professional experience** building accessible, performant, and maintainable web applications.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React and TypeScript are where I’m strongest, but I also have hands-on backend experience through personal full-stack projects using **Node, Express, PostgreSQL, MongoDB, Prisma**, and real-time features like **Socket.IO**.
 
-## Expanding the ESLint configuration
+My commercial background spans **design systems**, **UI architecture**, **component libraries**, **accessibility**, **performance optimisation**, and cross-team collaboration. I’ve worked across SaaS, accessibility tech, AI-driven platforms, CRO, and large multi-department organisations, always aiming for clean abstractions, reusable components, and predictable interfaces.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Outside of work, my GitHub and personal site act as an evolving lab of experiments, micro-demos, full applications, and deeper explorations into React, TypeScript, animations, design systems, real-time features, and backend services. I’m always learning, improving, and pushing myself to build better.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+I’m driven by creating products that **look clean**, **feel great to use**, and **scale well**, whether that’s a polished UI, a structured API, or an entire application from scratch.

@@ -1,0 +1,164 @@
+{
+  "projects": [
+    {
+      "id": "2",
+      "project": "ChatApp",
+      "description": "A full-stack real-time chat application built with React, TypeScript, and Node.js.",
+      "background": "ChatApp began as a personal project to showcase a clean, scalable approach to building full-stack real-time applications. The goal was to create a seamless messaging experience while demonstrating production-ready architecture across both the frontend and backend.",
+      "challenge": [
+        "Enabling reliable real-time communication across a full stack.",
+        "Designing a responsive and intuitive UI that behaves like a modern chat platform.",
+        "Ensuring fast, consistent updates between server and client without reloading the page.",
+        "Handling both relational data (users, sessions) and unstructured chat data (messages).",
+        "Creating a fully type-safe environment across client, server, and database."
+      ],
+      "solution": [
+        {
+          "title": "Real-Time Messaging Engine",
+          "details": "Implemented Socket.IO for instant message delivery, typing indicators, and live chat updates. The system supports room-based messaging and auto-updates for all connected clients."
+        },
+        {
+          "title": "Type-Safe Backend with Clean Architecture",
+          "details": "Built the server with Node.js + Express and structured it around Prisma for relational data and MongoDB for chat histories. Endpoints and database layers share TypeScript types to eliminate entire classes of errors."
+        },
+        {
+          "title": "Optimistic UI Powered by React Query",
+          "details": "The frontend uses React Query to pre-update the UI before the server confirms the action, giving the app a snappy, native feel and minimizing perceived latency."
+        },
+        {
+          "title": "Secure Authentication & Sessions",
+          "details": "Session-based authentication with encrypted cookies ensures users remain logged in securely. Passwords are hashed, and all auth logic follows industry best practices."
+        },
+        {
+          "title": "Modern, Responsive Interface",
+          "details": "Designed with Tailwind CSS, the UI mirrors modern messaging apps with smooth layouts, fast transitions, and a clean experience across mobile and desktop."
+        }
+      ],
+      "outcome": "ChatApp serves as a polished portfolio project demonstrating real-world engineering skills across the entire stack. The clean architecture, full TypeScript coverage, and real-time features set it apart from typical demo apps.",
+      "live_link": "https://chat-appi.netlify.app"
+    },
+    {
+      "id": "1",
+      "project": "Optimistic UI Sandbox",
+      "description": "A hands-on interactive playground to explore optimistic UI patterns under real-world failure conditions.",
+      "background": "Optimistic UI Sandbox was created to go beyond typical CRUD demos and showcase how a real interface should behave when the network is slow, unreliable, or fails entirely. Instead of relying on a live API, everything is fully mocked to give complete control over latency, errors, and response times.",
+      "challenge": [
+        "Demonstrating optimistic UI behaviour realistically without relying on a real backend.",
+        "Allowing developers to simulate slow networks and server failures on demand.",
+        "Ensuring the UI remains responsive and predictable even when underlying operations fail.",
+        "Providing clear examples of error recovery, rollback, and retry patterns."
+      ],
+      "solution": [
+        {
+          "title": "Optimistic UI for All Interactions",
+          "details": "Todos and notes update instantly using optimistic mutations, with background operations resolving asynchronously. Failure cases are handled with rollback logic or graceful error messages."
+        },
+        {
+          "title": "Mocked API Layer with Controlled Behavior",
+          "details": "All server interactions are mocked, including latency, random failures, and response delays. This avoids real backends while still simulating authentic network behaviour."
+        },
+        {
+          "title": "Interactive Control Panel",
+          "details": "A built-in panel lets users toggle network delay, introduce server errors, and stress-test UI interactions. This makes the sandbox ideal for learning and experimentation."
+        },
+        {
+          "title": "Robust State Management",
+          "details": "Zustand is used for predictable state updates and minimal boilerplate, keeping the focus on behaviour rather than infrastructure."
+        },
+        {
+          "title": "Full Test Coverage",
+          "details": "The project includes complete unit and integration tests using Jest and React Testing Library."
+        }
+      ],
+      "outcome": "Optimistic UI Sandbox became a practical reference for understanding how production-ready interfaces should behave under stress. Its fully mocked architecture and control panel make it an ideal learning tool for handling latency, failures, and instant UI updates.",
+      "features": [
+        "Optimistic UI updates for todos and notes",
+        "Built with React, TypeScript and Zustand",
+        "Control Panel for simulating network latency and server errors",
+        "Graceful error handling and rollback flows",
+        "Unit + integration tests with 100% coverage"
+      ]
+    },
+    {
+      "id": "4",
+      "project": "Auth-Guarded Hub",
+      "description": "A full-stack playground demonstrating real authentication, server-side sessions, and protected routes using a live backend.",
+      "background": "Auth-Guarded Hub was built to showcase how modern apps implement secure sessions, protected routes, and real persistence. Unlike mocked demos, it connects to an actual backend API deployed on Netlify Functions, with Prisma managing a real Postgres database.",
+      "challenge": [
+        "Building a real authentication flow using server-side sessions.",
+        "Ensuring protected routes remain inaccessible without a valid session.",
+        "Managing real persistence across signup, login, and session-based access.",
+        "Deploying a stack where schema migrations apply automatically on every deploy."
+      ],
+      "solution": [
+        {
+          "title": "Full-Stack React + Serverless Backend",
+          "details": "The frontend is built with React (Vite), while the backend runs through Netlify Functions. It exposes endpoints for signup, login, logout, session validation, and protected content."
+        },
+        {
+          "title": "Postgres + Prisma with Real Persistence",
+          "details": "A Postgres database managed with Prisma ensures reliable persistence. Migrations are versioned and applied automatically."
+        },
+        {
+          "title": "Server-Side Sessions with HTTP-Only Cookies",
+          "details": "Authentication uses secure session cookies set by the server."
+        },
+        {
+          "title": "Protected Routing",
+          "details": "React Router locks sensitive pages behind session validation. If a session expires, the user is redirected gracefully."
+        },
+        {
+          "title": "End-to-End Type Safety",
+          "details": "The entire flow runs on TypeScript, from frontend hooks to backend API handlers and Prisma models."
+        }
+      ],
+      "outcome": "Auth-Guarded Hub provides a complete example of real authentication, from sign-up to protected content access. It bridges the gap between mock demos and production setups.",
+      "features": [
+        "React (Vite) frontend + Netlify Functions backend",
+        "Postgres database with Prisma ORM",
+        "Server-side session auth",
+        "Protected routes via React Router",
+        "Automatic Prisma migrations",
+        "100% TypeScript across the stack"
+      ]
+    },
+    {
+      "id": "3",
+      "project": "React Lab Mono",
+      "description": "A monorepo showcasing React, TypeScript, and front-end architecture skills, featuring a full Design System package and Storybook documentation.",
+      "background": "React Lab Mono is an evolving monorepo that acts as a living portfolio of front-end engineering skills. Work is ongoing, and some sections may include notes, placeholders, or in-progress areas. It’s intentionally built as a long-term project that grows naturally over time.",
+      "challenge": [
+        "Creating a scalable monorepo architecture.",
+        "Building a fully typed, production-ready Design System.",
+        "Ensuring component-level accessibility, theming, and performance tuning.",
+        "Maintaining clean documentation across packages via Storybook."
+      ],
+      "solution": [
+        {
+          "title": "Design System Package",
+          "details": "The packages/ui workspace contains a production-ready React component library published on npm. It demonstrates TypeScript fundamentals, theming, accessibility, performance, testing, and reusable UI patterns."
+        },
+        {
+          "title": "Storybook Documentation",
+          "details": "The apps/docs workspace includes the Storybook setup, providing an interactive playground and documentation for every UI component."
+        },
+        {
+          "title": "Scalable Monorepo Setup",
+          "details": "The monorepo structure supports modular development, isolated builds, shared configs, and future expansion into additional packages and demo apps."
+        },
+        {
+          "title": "Front-End Architecture Best Practices",
+          "details": "The codebase shows clean separation of concerns, consistent folder structures, typed APIs, reusable hooks, and maintainable design patterns."
+        }
+      ],
+      "outcome": "React Lab Mono serves as a clean, extensible demonstration of component engineering, documentation workflows, and modern monorepo structure. It acts as a growing portfolio piece rather than a finished product.",
+      "features": [
+        "Monorepo architecture",
+        "Full React + TypeScript Design System",
+        "Storybook documentation playground",
+        "Accessibility and performance-first components",
+        "Testing and CI-ready structure"
+      ]
+    }
+  ]
+}
