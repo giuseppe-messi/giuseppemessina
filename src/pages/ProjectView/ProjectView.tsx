@@ -15,6 +15,29 @@ const ProjectView = () => {
   const project = projects.find((p) => p.id === Number(id)) ?? null;
   const currentCopy = projectJson.projects.find((p) => p.id === id);
 
+  const externalLinks = useMemo(
+    () => (
+      <div className="flex gap-3 mt-8 [&>button]:w-25">
+        <Button
+          onClick={() =>
+            window.open(project?.github, "_blank", "noopener,noreferrer")
+          }
+        >
+          GitHub
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() =>
+            window.open(project?.liveLink, "_blank", "noopener,noreferrer")
+          }
+        >
+          Live
+        </Button>
+      </div>
+    ),
+    [project]
+  );
+
   const components = useMemo(
     () => [
       <div className="flex items-center gap-2 text-[var(--text-gray)]">
@@ -34,6 +57,7 @@ const ProjectView = () => {
       <p className="text-[var(--text-gray)]">
         {project?.year} - {project?.desc}
       </p>,
+      externalLinks,
       <>
         <br />
         <br />
@@ -45,7 +69,6 @@ const ProjectView = () => {
           className="w-full h-auto mx-auto max-w-[560px] rounded-lg object-cover object-[center_30%]"
         />
       </div>,
-
       <>
         <br />
         <br />
@@ -80,7 +103,7 @@ const ProjectView = () => {
         <ul className="text-[var(--text-gray)] list-decimal pl-5 space-y-3">
           {currentCopy?.solution.map((c) => (
             <li key={c.title} className="pl-4">
-              <span className="font-semibold">{c.title}:</span>
+              <span className="font-semibold">{c.title}: </span>
               <span>{c.details}</span>
             </li>
           ))}
@@ -95,6 +118,8 @@ const ProjectView = () => {
           Outcome:
         </h4>
         <p className="text-[var(--text-gray)]">{currentCopy?.outcome}</p>
+
+        {externalLinks}
       </div>,
       <>
         <br />
@@ -125,7 +150,7 @@ const ProjectView = () => {
         <br />
       </>
     ],
-    [currentCopy, project, navigate]
+    [currentCopy, project, navigate, externalLinks]
   );
 
   if (!project) {

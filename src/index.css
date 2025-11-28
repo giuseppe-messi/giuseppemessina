@@ -15,6 +15,21 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: var(--main-black);
 
+  /* spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* colors */
+  --color-primary: #0c0c0c;
+  --color-secondary: #2f87c7a8;
+  --white: #f8f8ff;
+  --color-light-red: #e15151;
+  --color-light-green: #8dd765;
+  --color-light-yellow: #e1c051;
+
   --main-black: #161616;
   --main-gray: #1c1c1c;
   --medium-gray: #393939;
@@ -23,6 +38,10 @@
   --text-gray: #858585;
   --cta-full-bg: #2c2c2c;
   --cta-full-bg-hover: #232323;
+
+  /* Border radius */
+  --app-radius: 6px;
+  --btn-radius: 4px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

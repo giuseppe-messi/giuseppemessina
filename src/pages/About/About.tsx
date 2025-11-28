@@ -2,19 +2,36 @@ import { useMemo } from "react";
 import { Reveal } from "../../components/Reveal/Reveal";
 import giuseppesAvatar from "../../assets/giuseppe.jpeg";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
+import { Button } from "../../components/Button/Button";
+import { Download, Layers2 } from "lucide-react";
+import { Card } from "../../components/Card/Card";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+
   const components = useMemo(
     () => [
       <SectionHeader
         title="About me"
-        subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
-            eleifend leo eu fermentum. Aliquam sed sollicitudin sem. Vestibulum
-            suscipit odio vel ultrices finibus. Nullam ut vehicula diam. Sed non
-            nunc dictum, efficitur nisl sit amet, ultrices lorem. Sed at nibh
-            efficitur, lacinia sapien ac, eleifend mauris. In quis mi et erat
-            efficitur convallis sed ut mi."
+        subTitle="I’m Giuseppe Messina, a full-stack TypeScript developer with a strong frontend focus and over eight years of professional experience building accessible, performant, and maintainable web applications."
       />,
+      <>
+        <br />
+      </>,
+      <div>
+        <Button variant="outline">
+          <a
+            href="/Giuseppe-Messina-CV.pdf"
+            download
+            aria-label="CV download"
+            className="flex items-center gap-2"
+          >
+            <Download size={18} color="var(--text-gray)" />
+            <strong>Download my CV</strong>
+          </a>
+        </Button>
+      </div>,
       <>
         <br />
         <br />
@@ -31,37 +48,80 @@ const About = () => {
         <br />
         <div className="w-full max-w-[700px] mx-auto text-md mt-4 flex gap-3 flex-wrap text-[var(--text-gray)] text-justify">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas
-            eleifend leo eu fermentum. Aliquam sed sollicitudin sem. Vestibulum
-            suscipit odio vel ultrices finibus. Nullam ut vehicula diam. Sed non
-            nunc dictum, efficitur nisl sit amet, ultrices lorem. Sed at nibh
-            efficitur, lacinia sapien ac, eleifend mauris. In quis mi et erat
-            efficitur convallis sed ut mi.
+            React and TypeScript are where I’m strongest, but I also have
+            hands-on backend experience from personal full-stack projects using
+            Node, Express, PostgreSQL, MongoDB, Prisma, and real-time features
+            like Socket.IO.
           </p>
           <p>
-            Proin neque tellus, consectetur vestibulum metus vitae, molestie
-            tincidunt justo. Mauris eu luctus sapien. Proin ut fringilla nisi,
-            vestibulum volutpat nulla. Mauris ullamcorper fermentum odio, in
-            imperdiet risus ornare quis. Donec sit amet laoreet metus, convallis
-            scelerisque ligula. Integer ut odio sapien. Nullam quis sem
-            consectetur, pulvinar libero vel, volutpat eros. Nullam pretium leo
-            sollicitudin, bibendum enim vitae, ultricies libero. Vivamus viverra
-            eros eget cursus pretium. Aenean libero lacus, fermentum a elit non,
-            sodales luctus justo. Duis et pretium odio, ut mattis purus. Aliquam
-            non finibus libero. Maecenas in tellus nisl.
+            My commercial background spans design systems, UI architecture,
+            component libraries, accessibility, performance optimisation, and
+            cross-team collaboration. I’ve worked across SaaS, accessibility
+            tech, AI-driven platforms, CRO, and large multi-department
+            organisations, always pushing for cleaner abstractions, reusable
+            components, and predictable user experiences.
           </p>
           <p>
-            Nam imperdiet maximus blandit. Aliquam aliquet massa eget rutrum
-            volutpat. Ut mollis metus libero, a ultrices velit bibendum vel. In
-            fringilla, sapien vitae ullamcorper vestibulum, nunc dui viverra
-            ipsum, vitae commodo justo ligula at sem. Phasellus sollicitudin
-            eros a sapien aliquam, fringilla tincidunt eros dapibus. Phasellus
-            sit amet sem ac nisi consectetur faucibus. Suspendisse potenti.
-            Donec auctor nec dui vitae interdum. Nunc et magna sed justo cursus
-            volutpat. Fusce blandit consequat arcu, sed congue dolor molestie
-            quis. Aenean sit amet mauris mi. In accumsan faucibus ipsum, nec
-            tristique nisl varius eu.
+            Outside of work, my GitHub and personal site act as an evolving lab,
+            showcasing experiments, micro-demos, full products, and deep dives
+            into React, TypeScript, design systems, animations, real-time
+            features, and backend services. I’m continuously learning,
+            improving, and exploring new approaches across the full
+            JavaScript/TypeScript ecosystem.
           </p>
+          <p>
+            I’m driven by building things that feel great to use, look clean,
+            and scale well, whether that’s a polished UI, a well-structured API,
+            or a full product from scratch.
+          </p>
+        </div>
+      </div>,
+      <>
+        <br />
+        <br />
+        <br />
+      </>,
+      <div className="max-w-[700px] mx-auto flex flex-wrap gap-5 [&_button]:w-25">
+        <div className="w-full sm:w-[48%]">
+          <Card type="columns">
+            <a
+              href="/Giuseppe-Messina-CV.pdf"
+              download
+              aria-label="CV download"
+              className="flex items-center gap-2 flex flex-col items-start"
+            >
+              <div className="bg-[var(--medium-gray)] text-[var(--light-white)] border-1 border-[var(--light-gray)] rounded-full flex items-center justify-center w-10 h-10">
+                <Download size={20} />
+              </div>
+
+              <div className="mb-4 flex flex-col gap-2">
+                <p>Download my CV</p>
+                <p className="text-sm text-[var(--text-gray)]">
+                  Blending creativity and functionality.
+                </p>
+              </div>
+
+              <Button>Download</Button>
+            </a>
+          </Card>
+        </div>
+        <div className="w-full sm:w-[48%]">
+          <Card type="columns" onClick={() => navigate("/stack")}>
+            <div className="flex items-center gap-2 flex flex-col items-start">
+              <div className="bg-[var(--medium-gray)] text-[var(--light-white)] border-1 border-[var(--light-gray)] rounded-full flex items-center justify-center w-10 h-10">
+                <Layers2 size={20} />
+              </div>
+
+              <div className="mb-4 flex flex-col gap-2">
+                <p>My stack</p>
+                <p className="text-sm text-[var(--text-gray)]">
+                  Tools and resources I use daily.
+                </p>
+              </div>
+
+              <Button>Stack</Button>
+            </div>
+          </Card>
         </div>
       </div>,
       <>

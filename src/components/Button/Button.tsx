@@ -23,7 +23,6 @@ const variantClasses: Record<ButtonVariant, string> = {
   `,
   outline: `
     ${borderMedium}
-    text-[var(--cta-text)]
     bg-transparent
   `
 };

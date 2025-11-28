@@ -34,7 +34,7 @@
           "details": "Designed with Tailwind CSS, the UI mirrors modern messaging apps with smooth layouts, fast transitions, and a clean experience across mobile and desktop."
         }
       ],
-      "outcome": "ChatApp serves as a polished portfolio project demonstrating real-world engineering skills across the entire stack. Reviewers and hiring managers appreciate the clean architecture, full TypeScript coverage, and real-time features that set it apart from typical demo apps.",
+      "outcome": "ChatApp serves as a polished portfolio project demonstrating real-world engineering skills across the entire stack. The clean architecture, full TypeScript coverage, and real-time features set it apart from typical demo apps.",
       "live_link": "https://chat-appi.netlify.app"
     },
     {
@@ -101,7 +101,7 @@
         },
         {
           "title": "Server-Side Sessions with HTTP-Only Cookies",
-          "details": "Authentication uses secure session cookies set by the server. JWTs are layered on top for admin-level guards."
+          "details": "Authentication uses secure session cookies set by the server."
         },
         {
           "title": "Protected Routing",

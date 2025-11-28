@@ -78,19 +78,18 @@ const Home: React.FC = () => {
         <div>
           <h2 className={cardH2}>About me</h2>
           <p className="text-sm text-zinc-400 text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus
-            turpis ac nisi mollis, quis aliquet ante ullamcorper. Maecenas
-            laoreet nulla semper vulputate consectetur. Vivamus fringilla semper
-            est eu placerat. Fusce ac pellentesque metus. Morbi a dui vitae
-            mauris ultrices blandit nec id ex. Aenean id interdum lorem. Nulla
-            facilisi. Proin ut magna neque. Sed et mauris nec massa luctus
+            I’m Giuseppe Messina, a full-stack TypeScript developer with a
+            strong frontend focus and over eight years of professional
+            experience building accessible, performant, and maintainable web
+            applications. React and TypeScript are where I’m strongest, but I
+            also have hands-on backend experience from personal full-stack
+            projects using Node, Express, PostgreSQL, MongoDB, Prisma, and
+            real-time features like Socket.IO.
             <br />
             <br />
-            scelerisque. Sed maximus, turpis in finibus tempus, erat nunc
-            interdum lectus, vel mattis nisl nunc posuere justo. Integer aliquam
-            magna in odio commodo eleifend. Donec tincidunt augue ac ipsum
-            finibus finibus. Proin semper velit sed risus congue, ut vulputate
-            nisl sagittis.
+            I’m driven by building things that feel great to use, look clean,
+            and scale well, whether that’s a polished UI, a well-structured API,
+            or a full product from scratch.
           </p>
         </div>
 
@@ -102,7 +101,7 @@ const Home: React.FC = () => {
         <br />
         <br />
       </>,
-      <Card type="columns">
+      <Card type="columns" onClick={() => navigate("/stack")}>
         <div>
           <p className={cardH2}>Stack</p>
           <p className="text-sm text-zinc-400">

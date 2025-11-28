@@ -12,23 +12,21 @@ export const useFormSubmit = () => {
       Array.from(formData.entries()) as [string, string][]
     ).toString();
 
-    console.log("🚀 ~ body:", body);
-
     enQueueToast("sucess", "Your message was sent successfully!");
 
-    // try {
-    //   await fetch("/", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //     body
-    //   });
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body
+      });
 
-    //   form.reset();
-    //   enQueueToast("sucess", "Your message was sent successfully!");
-    // } catch (err) {
-    //   console.error(err);
-    //   enQueueToast("error", "Something went wrong sending your message!");
-    // }
+      form.reset();
+      enQueueToast("sucess", "Your message was sent successfully!");
+    } catch (err) {
+      console.error(err);
+      enQueueToast("error", "Something went wrong sending your message!");
+    }
   };
 
   return {
