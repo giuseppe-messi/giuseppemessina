@@ -57,6 +57,16 @@ const londonFormatter = new Intl.DateTimeFormat("en-GB", {
   hour12: false
 });
 
+const londonWeekdayFormatter = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/London",
+  weekday: "long"
+});
+
+const isLondonWeekend = () => {
+  const weekday = londonWeekdayFormatter.format(new Date());
+  return weekday === "Saturday" || weekday === "Sunday";
+};
+
 const getLondonTime = () => {
   const timeString = londonFormatter.format(new Date());
   const [hourStr, minuteStr] = timeString.split(":");
@@ -74,6 +84,10 @@ const getLondonTime = () => {
 };
 
 const getStatus = (hour: number) => {
+  if (isLondonWeekend()) {
+    return "😎 ...chilling";
+  }
+
   if (hour >= 9 && hour < 18) {
     return (
       <span className="flex items-center gap-2">
@@ -94,7 +108,7 @@ const getStatus = (hour: number) => {
         ></motion.span>
       </span>
     );
-  } else if (hour >= 18 && hour < 23) {
+  } else if (hour >= 18 && hour < 22) {
     return "😎 ...chilling";
   } else {
     return "💤";
