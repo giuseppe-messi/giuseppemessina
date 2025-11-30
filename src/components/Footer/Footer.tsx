@@ -1,7 +1,9 @@
 import { MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getActiveNavItemId } from "../../config/navItems";
+import { ROUTE_IDS } from "../../config/routes";
 
 const headers = ["Index", "Projects", "Resources", "Connect"];
 
@@ -101,6 +103,10 @@ const getStatus = (hour: number) => {
 
 export const Footer = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const activeId = getActiveNavItemId(pathname);
+  const isContactActive = activeId === ROUTE_IDS.contact;
+
   const [londonTime, setLondonTime] = useState<{
     hour: number;
     minutes: number;
@@ -164,13 +170,16 @@ export const Footer = () => {
       <div className="mx-auto max-w-250 flex flex-col gap-8 sm:flex-row sm:gap-0 py-10 border-b border-[var(--medium-gray)] mb-20">
         <div className="flex-1 text-sm">
           <p className="flex gap-1 mb-2">Currently {status}</p>
-          <div
-            onClick={() => navigate("/contact")}
-            className="flex items-center gap-2 text-[var(--text-gray)] cursor-pointer"
-          >
-            <p>Reach out</p>
-            <MoveRight size={18} />
-          </div>
+
+          {!isContactActive && (
+            <div
+              onClick={() => navigate("/contact")}
+              className="flex items-center gap-2 text-[var(--text-gray)] cursor-pointer"
+            >
+              <p>Reach out</p>
+              <MoveRight size={18} />
+            </div>
+          )}
         </div>
         <div className="flex-1">
           <p className="text-7xl text-[var(--text-gray)] whitespace-nowrap">
