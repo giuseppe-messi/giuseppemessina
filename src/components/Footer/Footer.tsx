@@ -104,7 +104,11 @@ const getLondonTime = () => {
 
 const getStatus = (hour: number) => {
   if (isLondonWeekend()) {
-    return "😎 ...chilling";
+    if (hour >= 9 && hour < 22) {
+      return "😎 ...chilling";
+    } else {
+      return "💤";
+    }
   }
 
   if (hour >= 9 && hour < 18) {
