@@ -1,11 +1,11 @@
 import { MoveRight } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getActiveNavItemId } from "../../config/navItems";
 import { ROUTE_IDS } from "../../config/routes";
 
-const headers = ["Index", "Projects", "Resources", "Connect"];
+const headers = ["Index", "Projects", "Resources", "Connect"] as const;
 
 const tableData = [
   {
@@ -49,6 +49,25 @@ const tableData = [
     connect: ""
   }
 ];
+
+const mobileViewData = (() => {
+  // rows -> columns
+  const columns = {
+    Index: [] as (string | JSX.Element)[],
+    Projects: [] as (string | JSX.Element)[],
+    Resources: [] as (string | JSX.Element)[],
+    Connect: [] as (string | JSX.Element)[]
+  };
+
+  tableData.forEach((row) => {
+    columns.Index.push(row.index);
+    columns.Projects.push(row.projects);
+    columns.Resources.push(row.resources);
+    columns.Connect.push(row.connect);
+  });
+
+  return columns;
+})();
 
 const londonFormatter = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/London",
@@ -166,17 +185,16 @@ export const Footer = () => {
 
         {/* mobile view */}
         <div className="sm:hidden grid grid-cols-2 gap-10 text-sm">
-          {tableData.map((row, i) => (
+          {headers.map((key) => (
             <div
-              key={i}
+              key={key}
               className="text-[var(--text-gray)] flex flex-col gap-2"
             >
-              <p className="font-semibold text-white mb-2">{headers[i]}</p>
+              <p className="font-semibold text-white mb-2">{key}</p>
 
-              <>{row.index}</>
-              <>{row.projects}</>
-              <>{row.resources}</>
-              <>{row.connect}</>
+              {mobileViewData[key].map((item, j) => (
+                <div key={j}>{item}</div>
+              ))}
             </div>
           ))}
         </div>
